@@ -1,0 +1,808 @@
+<!DOCTYPE html>
+<!-- saved from url=(0043)https://vaucheret.github.io/CALP/tipos.html -->
+<html class="reveal-full-page"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><title>Tipos de Datos</title>
+<link rel="stylesheet" href="./Tipos de Datos_files/reveal.css"><link rel="stylesheet" href="./Tipos de Datos_files/simple.css"><link rel="stylesheet" href="./Tipos de Datos_files/grids.css">
+<!-- If the query includes 'print-pdf', include the PDF print sheet -->
+<script>
+    if( window.location.search.match( /print-pdf/gi ) ) {
+        var link = document.createElement( 'link' );
+        link.rel = 'stylesheet';
+        link.type = 'text/css';
+        link.href = 'https://cdn.jsdelivr.net/npm/reveal.js/css/print/pdf.css';
+        document.getElementsByTagName( 'head' )[0].appendChild( link );
+    }
+</script>
+<script type="text/javascript" src="./Tipos de Datos_files/MathJax.js.descargar"></script>
+<link rel="stylesheet" href="./Tipos de Datos_files/default.min.css">
+<script src="./Tipos de Datos_files/highlight.min.js.descargar"></script>
+<script>hljs.highlightAll();</script>
+<style>    .reveal {      background-image: url('bitmap.png');      background-size: 102%;      background-position: top left;      background-repeat: no-repeat;    }</style><style type="text/css">.MathJax_Hover_Frame {border-radius: .25em; -webkit-border-radius: .25em; -moz-border-radius: .25em; -khtml-border-radius: .25em; box-shadow: 0px 0px 15px #83A; -webkit-box-shadow: 0px 0px 15px #83A; -moz-box-shadow: 0px 0px 15px #83A; -khtml-box-shadow: 0px 0px 15px #83A; border: 1px solid #A6D ! important; display: inline-block; position: absolute}
+.MathJax_Menu_Button .MathJax_Hover_Arrow {position: absolute; cursor: pointer; display: inline-block; border: 2px solid #AAA; border-radius: 4px; -webkit-border-radius: 4px; -moz-border-radius: 4px; -khtml-border-radius: 4px; font-family: 'Courier New',Courier; font-size: 9px; color: #F0F0F0}
+.MathJax_Menu_Button .MathJax_Hover_Arrow span {display: block; background-color: #AAA; border: 1px solid; border-radius: 3px; line-height: 0; padding: 4px}
+.MathJax_Hover_Arrow:hover {color: white!important; border: 2px solid #CCC!important}
+.MathJax_Hover_Arrow:hover span {background-color: #CCC!important}
+</style><style type="text/css">#MathJax_About {position: fixed; left: 50%; width: auto; text-align: center; border: 3px outset; padding: 1em 2em; background-color: #DDDDDD; color: black; cursor: default; font-family: message-box; font-size: 120%; font-style: normal; text-indent: 0; text-transform: none; line-height: normal; letter-spacing: normal; word-spacing: normal; word-wrap: normal; white-space: nowrap; float: none; z-index: 201; border-radius: 15px; -webkit-border-radius: 15px; -moz-border-radius: 15px; -khtml-border-radius: 15px; box-shadow: 0px 10px 20px #808080; -webkit-box-shadow: 0px 10px 20px #808080; -moz-box-shadow: 0px 10px 20px #808080; -khtml-box-shadow: 0px 10px 20px #808080; filter: progid:DXImageTransform.Microsoft.dropshadow(OffX=2, OffY=2, Color='gray', Positive='true')}
+#MathJax_About.MathJax_MousePost {outline: none}
+.MathJax_Menu {position: absolute; background-color: white; color: black; width: auto; padding: 2px; border: 1px solid #CCCCCC; margin: 0; cursor: default; font: menu; text-align: left; text-indent: 0; text-transform: none; line-height: normal; letter-spacing: normal; word-spacing: normal; word-wrap: normal; white-space: nowrap; float: none; z-index: 201; box-shadow: 0px 10px 20px #808080; -webkit-box-shadow: 0px 10px 20px #808080; -moz-box-shadow: 0px 10px 20px #808080; -khtml-box-shadow: 0px 10px 20px #808080; filter: progid:DXImageTransform.Microsoft.dropshadow(OffX=2, OffY=2, Color='gray', Positive='true')}
+.MathJax_MenuItem {padding: 2px 2em; background: transparent}
+.MathJax_MenuArrow {position: absolute; right: .5em; padding-top: .25em; color: #666666; font-size: .75em}
+.MathJax_MenuActive .MathJax_MenuArrow {color: white}
+.MathJax_MenuArrow.RTL {left: .5em; right: auto}
+.MathJax_MenuCheck {position: absolute; left: .7em}
+.MathJax_MenuCheck.RTL {right: .7em; left: auto}
+.MathJax_MenuRadioCheck {position: absolute; left: 1em}
+.MathJax_MenuRadioCheck.RTL {right: 1em; left: auto}
+.MathJax_MenuLabel {padding: 2px 2em 4px 1.33em; font-style: italic}
+.MathJax_MenuRule {border-top: 1px solid #CCCCCC; margin: 4px 1px 0px}
+.MathJax_MenuDisabled {color: GrayText}
+.MathJax_MenuActive {background-color: Highlight; color: HighlightText}
+.MathJax_MenuDisabled:focus, .MathJax_MenuLabel:focus {background-color: #E8E8E8}
+.MathJax_ContextMenu:focus {outline: none}
+.MathJax_ContextMenu .MathJax_MenuItem:focus {outline: none}
+#MathJax_AboutClose {top: .2em; right: .2em}
+.MathJax_Menu .MathJax_MenuClose {top: -10px; left: -10px}
+.MathJax_MenuClose {position: absolute; cursor: pointer; display: inline-block; border: 2px solid #AAA; border-radius: 18px; -webkit-border-radius: 18px; -moz-border-radius: 18px; -khtml-border-radius: 18px; font-family: 'Courier New',Courier; font-size: 24px; color: #F0F0F0}
+.MathJax_MenuClose span {display: block; background-color: #AAA; border: 1.5px solid; border-radius: 18px; -webkit-border-radius: 18px; -moz-border-radius: 18px; -khtml-border-radius: 18px; line-height: 0; padding: 8px 0 6px}
+.MathJax_MenuClose:hover {color: white!important; border: 2px solid #CCC!important}
+.MathJax_MenuClose:hover span {background-color: #CCC!important}
+.MathJax_MenuClose:hover:focus {outline: none}
+</style><style type="text/css">.MathJax_Preview .MJXf-math {color: inherit!important}
+</style><style type="text/css">.MJX_Assistive_MathML {position: absolute!important; top: 0; left: 0; clip: rect(1px, 1px, 1px, 1px); padding: 1px 0 0 0!important; border: 0!important; height: 1px!important; width: 1px!important; overflow: hidden!important; display: block!important; -webkit-touch-callout: none; -webkit-user-select: none; -khtml-user-select: none; -moz-user-select: none; -ms-user-select: none; user-select: none}
+.MJX_Assistive_MathML.MJX_Assistive_MathML_Block {width: 100%!important}
+</style><style type="text/css">#MathJax_Zoom {position: absolute; background-color: #F0F0F0; overflow: auto; display: block; z-index: 301; padding: .5em; border: 1px solid black; margin: 0; font-weight: normal; font-style: normal; text-align: left; text-indent: 0; text-transform: none; line-height: normal; letter-spacing: normal; word-spacing: normal; word-wrap: normal; white-space: nowrap; float: none; -webkit-box-sizing: content-box; -moz-box-sizing: content-box; box-sizing: content-box; box-shadow: 5px 5px 15px #AAAAAA; -webkit-box-shadow: 5px 5px 15px #AAAAAA; -moz-box-shadow: 5px 5px 15px #AAAAAA; -khtml-box-shadow: 5px 5px 15px #AAAAAA; filter: progid:DXImageTransform.Microsoft.dropshadow(OffX=2, OffY=2, Color='gray', Positive='true')}
+#MathJax_ZoomOverlay {position: absolute; left: 0; top: 0; z-index: 300; display: inline-block; width: 100%; height: 100%; border: 0; padding: 0; margin: 0; background-color: white; opacity: 0; filter: alpha(opacity=0)}
+#MathJax_ZoomFrame {position: relative; display: inline-block; height: 0; width: 0}
+#MathJax_ZoomEventTrap {position: absolute; left: 0; top: 0; z-index: 302; display: inline-block; border: 0; padding: 0; margin: 0; background-color: white; opacity: 0; filter: alpha(opacity=0)}
+</style><style type="text/css">.MathJax_Preview {color: #888}
+#MathJax_Message {position: fixed; left: 1em; bottom: 1.5em; background-color: #E6E6E6; border: 1px solid #959595; margin: 0px; padding: 2px 8px; z-index: 102; color: black; font-size: 80%; width: auto; white-space: nowrap}
+#MathJax_MSIE_Frame {position: absolute; top: 0; left: 0; width: 0px; z-index: 101; border: 0px; margin: 0px; padding: 0px}
+.MathJax_Error {color: #CC0000; font-style: italic}
+</style><style type="text/css">.MJXp-script {font-size: .8em}
+.MJXp-right {-webkit-transform-origin: right; -moz-transform-origin: right; -ms-transform-origin: right; -o-transform-origin: right; transform-origin: right}
+.MJXp-bold {font-weight: bold}
+.MJXp-italic {font-style: italic}
+.MJXp-scr {font-family: MathJax_Script,'Times New Roman',Times,STIXGeneral,serif}
+.MJXp-frak {font-family: MathJax_Fraktur,'Times New Roman',Times,STIXGeneral,serif}
+.MJXp-sf {font-family: MathJax_SansSerif,'Times New Roman',Times,STIXGeneral,serif}
+.MJXp-cal {font-family: MathJax_Caligraphic,'Times New Roman',Times,STIXGeneral,serif}
+.MJXp-mono {font-family: MathJax_Typewriter,'Times New Roman',Times,STIXGeneral,serif}
+.MJXp-largeop {font-size: 150%}
+.MJXp-largeop.MJXp-int {vertical-align: -.2em}
+.MJXp-math {display: inline-block; line-height: 1.2; text-indent: 0; font-family: 'Times New Roman',Times,STIXGeneral,serif; white-space: nowrap; border-collapse: collapse}
+.MJXp-display {display: block; text-align: center; margin: 1em 0}
+.MJXp-math span {display: inline-block}
+.MJXp-box {display: block!important; text-align: center}
+.MJXp-box:after {content: " "}
+.MJXp-rule {display: block!important; margin-top: .1em}
+.MJXp-char {display: block!important}
+.MJXp-mo {margin: 0 .15em}
+.MJXp-mfrac {margin: 0 .125em; vertical-align: .25em}
+.MJXp-denom {display: inline-table!important; width: 100%}
+.MJXp-denom > * {display: table-row!important}
+.MJXp-surd {vertical-align: top}
+.MJXp-surd > * {display: block!important}
+.MJXp-script-box > *  {display: table!important; height: 50%}
+.MJXp-script-box > * > * {display: table-cell!important; vertical-align: top}
+.MJXp-script-box > *:last-child > * {vertical-align: bottom}
+.MJXp-script-box > * > * > * {display: block!important}
+.MJXp-mphantom {visibility: hidden}
+.MJXp-munderover, .MJXp-munder {display: inline-table!important}
+.MJXp-over {display: inline-block!important; text-align: center}
+.MJXp-over > * {display: block!important}
+.MJXp-munderover > *, .MJXp-munder > * {display: table-row!important}
+.MJXp-mtable {vertical-align: .25em; margin: 0 .125em}
+.MJXp-mtable > * {display: inline-table!important; vertical-align: middle}
+.MJXp-mtr {display: table-row!important}
+.MJXp-mtd {display: table-cell!important; text-align: center; padding: .5em 0 0 .5em}
+.MJXp-mtr > .MJXp-mtd:first-child {padding-left: 0}
+.MJXp-mtr:first-child > .MJXp-mtd {padding-top: 0}
+.MJXp-mlabeledtr {display: table-row!important}
+.MJXp-mlabeledtr > .MJXp-mtd:first-child {padding-left: 0}
+.MJXp-mlabeledtr:first-child > .MJXp-mtd {padding-top: 0}
+.MJXp-merror {background-color: #FFFF88; color: #CC0000; border: 1px solid #CC0000; padding: 1px 3px; font-style: normal; font-size: 90%}
+.MJXp-scale0 {-webkit-transform: scaleX(.0); -moz-transform: scaleX(.0); -ms-transform: scaleX(.0); -o-transform: scaleX(.0); transform: scaleX(.0)}
+.MJXp-scale1 {-webkit-transform: scaleX(.1); -moz-transform: scaleX(.1); -ms-transform: scaleX(.1); -o-transform: scaleX(.1); transform: scaleX(.1)}
+.MJXp-scale2 {-webkit-transform: scaleX(.2); -moz-transform: scaleX(.2); -ms-transform: scaleX(.2); -o-transform: scaleX(.2); transform: scaleX(.2)}
+.MJXp-scale3 {-webkit-transform: scaleX(.3); -moz-transform: scaleX(.3); -ms-transform: scaleX(.3); -o-transform: scaleX(.3); transform: scaleX(.3)}
+.MJXp-scale4 {-webkit-transform: scaleX(.4); -moz-transform: scaleX(.4); -ms-transform: scaleX(.4); -o-transform: scaleX(.4); transform: scaleX(.4)}
+.MJXp-scale5 {-webkit-transform: scaleX(.5); -moz-transform: scaleX(.5); -ms-transform: scaleX(.5); -o-transform: scaleX(.5); transform: scaleX(.5)}
+.MJXp-scale6 {-webkit-transform: scaleX(.6); -moz-transform: scaleX(.6); -ms-transform: scaleX(.6); -o-transform: scaleX(.6); transform: scaleX(.6)}
+.MJXp-scale7 {-webkit-transform: scaleX(.7); -moz-transform: scaleX(.7); -ms-transform: scaleX(.7); -o-transform: scaleX(.7); transform: scaleX(.7)}
+.MJXp-scale8 {-webkit-transform: scaleX(.8); -moz-transform: scaleX(.8); -ms-transform: scaleX(.8); -o-transform: scaleX(.8); transform: scaleX(.8)}
+.MJXp-scale9 {-webkit-transform: scaleX(.9); -moz-transform: scaleX(.9); -ms-transform: scaleX(.9); -o-transform: scaleX(.9); transform: scaleX(.9)}
+.MathJax_PHTML .noError {vertical-align: ; font-size: 90%; text-align: left; color: black; padding: 1px 3px; border: 1px solid}
+</style><style type="text/css">.MathJax_Display {text-align: center; margin: 1em 0em; position: relative; display: block!important; text-indent: 0; max-width: none; max-height: none; min-width: 0; min-height: 0; width: 100%}
+.MathJax .merror {background-color: #FFFF88; color: #CC0000; border: 1px solid #CC0000; padding: 1px 3px; font-style: normal; font-size: 90%}
+.MathJax .MJX-monospace {font-family: monospace}
+.MathJax .MJX-sans-serif {font-family: sans-serif}
+#MathJax_Tooltip {background-color: InfoBackground; color: InfoText; border: 1px solid black; box-shadow: 2px 2px 5px #AAAAAA; -webkit-box-shadow: 2px 2px 5px #AAAAAA; -moz-box-shadow: 2px 2px 5px #AAAAAA; -khtml-box-shadow: 2px 2px 5px #AAAAAA; filter: progid:DXImageTransform.Microsoft.dropshadow(OffX=2, OffY=2, Color='gray', Positive='true'); padding: 3px 4px; z-index: 401; position: absolute; left: 0; top: 0; width: auto; height: auto; display: none}
+.MathJax {display: inline; font-style: normal; font-weight: normal; line-height: normal; font-size: 100%; font-size-adjust: none; text-indent: 0; text-align: left; text-transform: none; letter-spacing: normal; word-spacing: normal; word-wrap: normal; white-space: nowrap; float: none; direction: ltr; max-width: none; max-height: none; min-width: 0; min-height: 0; border: 0; padding: 0; margin: 0}
+.MathJax:focus, body :focus .MathJax {display: inline-table}
+.MathJax.MathJax_FullWidth {text-align: center; display: table-cell!important; width: 10000em!important}
+.MathJax img, .MathJax nobr, .MathJax a {border: 0; padding: 0; margin: 0; max-width: none; max-height: none; min-width: 0; min-height: 0; vertical-align: 0; line-height: normal; text-decoration: none}
+img.MathJax_strut {border: 0!important; padding: 0!important; margin: 0!important; vertical-align: 0!important}
+.MathJax span {display: inline; position: static; border: 0; padding: 0; margin: 0; vertical-align: 0; line-height: normal; text-decoration: none; box-sizing: content-box}
+.MathJax nobr {white-space: nowrap!important}
+.MathJax img {display: inline!important; float: none!important}
+.MathJax * {transition: none; -webkit-transition: none; -moz-transition: none; -ms-transition: none; -o-transition: none}
+.MathJax_Processing {visibility: hidden; position: fixed; width: 0; height: 0; overflow: hidden}
+.MathJax_Processed {display: none!important}
+.MathJax_test {font-style: normal; font-weight: normal; font-size: 100%; font-size-adjust: none; text-indent: 0; text-transform: none; letter-spacing: normal; word-spacing: normal; overflow: hidden; height: 1px}
+.MathJax_test.mjx-test-display {display: table!important}
+.MathJax_test.mjx-test-inline {display: inline!important; margin-right: -1px}
+.MathJax_test.mjx-test-default {display: block!important; clear: both}
+.MathJax_ex_box {display: inline-block!important; position: absolute; overflow: hidden; min-height: 0; max-height: none; padding: 0; border: 0; margin: 0; width: 1px; height: 60ex}
+.MathJax_em_box {display: inline-block!important; position: absolute; overflow: hidden; min-height: 0; max-height: none; padding: 0; border: 0; margin: 0; width: 1px; height: 60em}
+.mjx-test-inline .MathJax_left_box {display: inline-block; width: 0; float: left}
+.mjx-test-inline .MathJax_right_box {display: inline-block; width: 0; float: right}
+.mjx-test-display .MathJax_right_box {display: table-cell!important; width: 10000em!important; min-width: 0; max-width: none; padding: 0; border: 0; margin: 0}
+.MathJax .MathJax_HitBox {cursor: text; background: white; opacity: 0; filter: alpha(opacity=0)}
+.MathJax .MathJax_HitBox * {filter: none; opacity: 1; background: transparent}
+#MathJax_Tooltip * {filter: none; opacity: 1; background: transparent}
+@font-face {font-family: MathJax_Main; src: url('https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/fonts/HTML-CSS/TeX/woff/MathJax_Main-Regular.woff?V=2.7.5') format('woff'), url('https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/fonts/HTML-CSS/TeX/otf/MathJax_Main-Regular.otf?V=2.7.5') format('opentype')}
+@font-face {font-family: MathJax_Main-bold; src: url('https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/fonts/HTML-CSS/TeX/woff/MathJax_Main-Bold.woff?V=2.7.5') format('woff'), url('https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/fonts/HTML-CSS/TeX/otf/MathJax_Main-Bold.otf?V=2.7.5') format('opentype')}
+@font-face {font-family: MathJax_Main-italic; src: url('https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/fonts/HTML-CSS/TeX/woff/MathJax_Main-Italic.woff?V=2.7.5') format('woff'), url('https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/fonts/HTML-CSS/TeX/otf/MathJax_Main-Italic.otf?V=2.7.5') format('opentype')}
+@font-face {font-family: MathJax_Math-italic; src: url('https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/fonts/HTML-CSS/TeX/woff/MathJax_Math-Italic.woff?V=2.7.5') format('woff'), url('https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/fonts/HTML-CSS/TeX/otf/MathJax_Math-Italic.otf?V=2.7.5') format('opentype')}
+@font-face {font-family: MathJax_Caligraphic; src: url('https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/fonts/HTML-CSS/TeX/woff/MathJax_Caligraphic-Regular.woff?V=2.7.5') format('woff'), url('https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/fonts/HTML-CSS/TeX/otf/MathJax_Caligraphic-Regular.otf?V=2.7.5') format('opentype')}
+@font-face {font-family: MathJax_Size1; src: url('https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/fonts/HTML-CSS/TeX/woff/MathJax_Size1-Regular.woff?V=2.7.5') format('woff'), url('https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/fonts/HTML-CSS/TeX/otf/MathJax_Size1-Regular.otf?V=2.7.5') format('opentype')}
+@font-face {font-family: MathJax_Size2; src: url('https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/fonts/HTML-CSS/TeX/woff/MathJax_Size2-Regular.woff?V=2.7.5') format('woff'), url('https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/fonts/HTML-CSS/TeX/otf/MathJax_Size2-Regular.otf?V=2.7.5') format('opentype')}
+@font-face {font-family: MathJax_Size3; src: url('https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/fonts/HTML-CSS/TeX/woff/MathJax_Size3-Regular.woff?V=2.7.5') format('woff'), url('https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/fonts/HTML-CSS/TeX/otf/MathJax_Size3-Regular.otf?V=2.7.5') format('opentype')}
+@font-face {font-family: MathJax_Size4; src: url('https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/fonts/HTML-CSS/TeX/woff/MathJax_Size4-Regular.woff?V=2.7.5') format('woff'), url('https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/fonts/HTML-CSS/TeX/otf/MathJax_Size4-Regular.otf?V=2.7.5') format('opentype')}
+.MathJax .noError {vertical-align: ; font-size: 90%; text-align: left; color: black; padding: 1px 3px; border: 1px solid}
+</style></head>
+<body class="reveal-viewport" style="--slide-width: 960px; --slide-height: 700px; --slide-scale: 1.25; --viewport-width: 1912px; --viewport-height: 914px;"><div style="visibility: hidden; overflow: hidden; position: absolute; top: 0px; height: 1px; width: auto; padding: 0px; border: 0px; margin: 0px; text-align: left; text-indent: 0px; text-transform: none; line-height: normal; letter-spacing: normal; word-spacing: normal;"><div id="MathJax_Hidden"><br><br><br><br><br><br><br><br><br></div></div><div id="MathJax_Message" style="display: none;"></div><div class="reveal slide center focused has-vertical-slides has-horizontal-slides ready" role="application" data-transition-speed="default" data-background-transition="fade"><div class="slides" style="width: 960px; height: 700px; inset: 50% auto auto 50%; transform: translate(-50%, -50%) scale(1.25);"><section id="sec-title-slide" style="top: 195px; display: block;" class="present"><h1 class="title">Tipos de Datos</h1>
+<h2 class="author">C. A. L. P.</h2>
+<h3 class="date">Claudio Vaucheret</h3>
+</section>
+<section style="top: 301.5px; display: block;" inert="" hidden="" aria-hidden="true" class="future"><h2>Introducción</h2>
+<div class="outline-text-2"></div>
+</section>
+<section style="top: 33.5px; display: block;" inert="" hidden="" aria-hidden="true" class="future"><h3>Tipos de Datos</h3>
+<div style="font-size: 85%;">
+<p>Hemos desarrollado una noción intuitiva de tipo de dato; ¿Que hay  detras de la intuición?</p>
+<ul><li class="fragment fade-in-then-semi-out" data-fragment-index="0"> Conjunto de valores de un "dominio" (la aproximación funcional)</li>
+<li class="fragment fade-in-then-semi-out" data-fragment-index="1">Estructura interna de un manojo de datos, descripto al nivel de un conjunto pequeño de tipos fundamentales (aproximación estructural)</li>
+<li class="fragment fade-in-then-semi-out" data-fragment-index="2">Clase de equivalencia de objetos (aproximación del implementador)</li>
+<li class="fragment fade-in-then-semi-out" data-fragment-index="3">Conjunto de operaciones bien-definidas que pueden ser aplicadas a    objetos de ese tipo (aproximación de abstracción)</li>
+</ul>
+</div></section>
+<section style="top: 350px; display: none;" inert="" hidden="" aria-hidden="true" class="future"><h3><span style="color:green;">Tipos de Datos</span></h3>
+<center><b>Utilidad</b>
+</center>
+<ul><li class="fragment highlight-current-green" data-fragment-index="0">Contexto implícito</li>
+<li class="fragment highlight-current-green" data-fragment-index="1">Chequeo de tipos<ul><li class="fragment highlight-current-green" data-fragment-index="2">Asegura que ciertas operaciones erróneas no ocurran</li>
+<li class="fragment highlight-current-green" data-fragment-index="3">aunque no puede prevenir todas</li>
+</ul>
+</li>
+<li class="fragment highlight-current-green" data-fragment-index="4">polimorfismo surge cuando el compilador encuentra que no necesita saber ciertas cosas</li>
+</ul>
+</section>
+<section style="top: 350px; display: none;" inert="" hidden="" aria-hidden="true" class="stack future"><h3></h3>
+<section style="top: 350px; display: none;" inert=""><h3><span style="color:red;">Tipos de Datos</span></h3>
+<ul><li class="fragment highlight-current-red" data-fragment-index="0"><b>Fuertemente Tipado</b>
+se ha vuelto un término popular<ul><li class="fragment highlight-current-red" data-fragment-index="1">como <em>programación estructurada</em>
+</li>
+<li class="fragment highlight-current-red" data-fragment-index="2">Informalmente, significa que el lenguaje previene al programador  de aplicar operaciones a los datos que no son apropiados</li>
+</ul>
+</li>
+<li class="fragment highlight-current-red" data-fragment-index="3"><b>Fuertemente Estático</b>
+significa que el compilador puede realizar todos los chequeos en tiempo de compilación</li>
+</ul>
+</section>
+<section class="future" aria-hidden="true" style="top: 350px; display: none;" inert=""><h3><span style="color:red;">Ejemplos</span></h3>
+<ul><li class="fragment highlight-current-red" data-fragment-index="0">Common Lisp is fuertemente tipado pero no <b>tipado estaticamente</b>
+</li>
+<li class="fragment highlight-current-red" data-fragment-index="1">Ada es estáticamente tipado</li>
+<li class="fragment highlight-current-red" data-fragment-index="2">Pascal es casi estáticamente tipado</li>
+<li class="fragment highlight-current-red" data-fragment-index="3">Java es fuertemente tipado, con una mezcla no trivial de cosas que pueden ser chequeadas estaticamente y cosas que tienen que ser chequeadas dinámicamente.</li>
+</ul>
+</section>
+</section>
+<section style="top: 350px; display: none;" inert="" hidden="" aria-hidden="true" class="future"><h3><span style="color:brown;">Tipos de Datos</span></h3>
+<div style="font-size: 90%;">
+<center><b><span style="color:brown;">Simples</span></b>
+</center>
+<ul><li class="fragment appear" data-fragment-index="0"><em>Primitivos:</em>
+integer, float, char, enum,</li>
+<li class="fragment appear" data-fragment-index="1">Definidos por el Usuario</li>
+</ul>
+<center><b><span style="color:brown;">Compuestos</span></b>
+</center>
+<ul><li class="fragment appear" data-fragment-index="2">Arreglos</li>
+<li class="fragment appear" data-fragment-index="3"><em>strings</em>
+</li>
+<li class="fragment appear" data-fragment-index="4">Arreglos asociativos</li>
+<li class="fragment appear" data-fragment-index="5">Registros</li>
+<li class="fragment appear" data-fragment-index="6">Union</li>
+<li class="fragment appear" data-fragment-index="7">conjuntos</li>
+<li class="fragment appear" data-fragment-index="8">listas</li>
+<li class="fragment appear" data-fragment-index="9">punteros</li>
+<li class="fragment appear" data-fragment-index="10">archivos</li>
+</ul>
+</div></section>
+<section style="top: 350px; display: none;" inert="" hidden="" aria-hidden="true" class="future"><h3><span style="color:blue;">Sistema de Tipos</span></h3>
+<center>Un <b>Sistema de Tipos</b>
+ tiene reglas para:</center>
+<ul><li class="fragment highlight-current-blue" data-fragment-index="0">equivalencia de tipos (¿cuándo los tipos de dos valores son el mismo?)</li>
+<li class="fragment highlight-current-blue" data-fragment-index="1">compatibilidad de tipos (¿cuándo puede el valor de un tipo A ser usado en un contexto donde se espera el tipo B?)</li>
+<li class="fragment highlight-current-blue" data-fragment-index="2">inferencia de tipos (¿Cuál es el tipo de una expresión, dado el tipo de los operandos?)</li>
+</ul>
+</section>
+<section style="top: 350px; display: none;" inert="" hidden="" aria-hidden="true" class="future"><h3><span style="color:purple;">Chequeo de Tipos</span></h3>
+Dos Aproximaciones: <em>equivalencia estructural</em>
+ y <em>equivalencia por nombre</em>
+<ul><li class="fragment appear" data-fragment-index="0">La equivalencia por nombre esta basado en las declaraciones</li>
+<li class="fragment appear" data-fragment-index="1">La equivalencia estructural esta basada en la noción de significado detrás de esas declaraciones</li>
+<li class="fragment appear" data-fragment-index="2">Equivalencia por nombre es mas preferida hoy en dia.</li>
+</ul>
+</section>
+<section style="top: 350px; display: none;" inert="" hidden="" aria-hidden="true" class="future"><h3><span style="color:pink;">Estructural vs. por Nombre</span></h3>
+<div style="font-size: 70%;">
+<ul><li class="fragment appear" data-fragment-index="0"><p>a veces es preferible estructural</p>
+<pre><code data-highlighted="yes" class="hljs language-python-repl">
+TYPE stack_element = INTEGER; (* or whatever type the user prefers *)
+MODULE stack; 
+IMPORT stack_element;
+EXPORT push, pop; 
+<span class="hljs-meta prompt_">...</span> 
+PROCEDURE push(elem : stack_element); 
+<span class="hljs-meta prompt_">...</span>
+PROCEDURE pop() : stack_element; 
+<span class="hljs-meta prompt_">...</span>
+</code></pre>
+</li>
+<li class="fragment appear" data-fragment-index="1"><p>otras veces por nombre</p>
+<pre><code data-highlighted="yes" class="hljs language-go">
+TYPE celsius_temp = REAL;
+fahrenheit_temp = REAL; 
+VAR c : celsius_temp; 
+    f : fahrenheit_temp; 
+ 
+BEGIN (* alias_types *)
+    c := <span class="hljs-number">100.0</span>;
+    f := c;               (* this should probably be an <span class="hljs-type">error</span> *)
+</code></pre>
+</li>
+</ul>
+</div></section>
+<section style="top: 350px; display: none;" inert="" hidden="" aria-hidden="true" class="future"><h2>Chequeo de Tipos</h2>
+<div class="outline-text-2"></div>
+</section>
+<section style="top: 350px; display: none;" inert="" hidden="" aria-hidden="true" class="stack future"><h3></h3>
+<section style="top: 350px; display: none;" inert=""><h3><span style="color:magenta;">Chequeo de Tipos: Coerción</span></h3>
+<div style="font-size: 90%;">
+<center><b>Coerción</b>
+</center>
+<ul><li>Cuando una expresión es usada en un contexto donde un tipo diferente se espera, uno normalmente obtiene un error.</li>
+<li>Pero, ¿y en esta situación?:<pre><code data-highlighted="yes" class="hljs language-css">
+<span class="hljs-selector-tag">var</span> <span class="hljs-selector-tag">a</span> : integer; <span class="hljs-selector-tag">b</span>, c : real;
+...
+
+c := a + b;
+</code></pre>
+</li>
+<li>Muchos Lenguajes lo permiten.</li>
+<li>Puede ser basado solo en los tipos de los operandos (Fortran)</li>
+</ul>
+</div></section>
+<section class="future" aria-hidden="true" style="top: 350px; display: none;" inert=""><h3><span style="color:magenta;">Chequeo de Tipos: Coerción</span></h3>
+<center><b>Coerción</b>
+</center>
+<p><b>C</b>
+ usa mucha coerción, pero con reglas simples:</p>
+<ul><li>todos los <code>float</code>
+ en expresiones se vuelven <code>double</code>
+</li>
+<li><code>short int </code>
+ y <code>char</code>
+ se vuelven <code>int</code>
+ en las expresiones</li>
+<li>Si es necesario, la precisión es removida cuando se asigna a lado izquierdo de la asignación.</li>
+</ul>
+</section>
+<section class="future" aria-hidden="true" style="top: 350px; display: none;" inert=""><h3><span style="color:magenta;">Chequeo de Tipos: Coerción</span></h3>
+<p>De hecho, las reglas de coerción son una relajación del chequeo de tipos:</p>
+<ul><li>Nuevas opiniones lo consideran una mala idea</li>
+<li>Lenguajes como Modula-2 y Ada no permiten coerción</li>
+<li><b>C++</b>
+ sin embargo lo usa en extremo</li>
+</ul>
+</section>
+<section class="future" aria-hidden="true" style="top: 350px; display: none;" inert=""><h3><span style="color:magenta;">Chequeo de Tipos: Coerción</span></h3>
+<p>Es importante entender la diferencia entre:</p>
+<ul><li><b>Conversión de Tipos</b>
+ que es <em>explícito</em>
+ y</li>
+<li><b>Coerción de Tipos</b>
+ que es <em>implícito</em>
+</li>
+<li>para las conversiones a veces se usa la palabra <em>cast</em>
+ por <b>C</b>
+</li>
+</ul>
+</section>
+</section>
+<section style="top: 350px; display: none;" inert="" hidden="" aria-hidden="true" class="future"><h2>Arreglos</h2>
+<div class="outline-text-2"></div>
+</section>
+<section style="top: 350px; display: none;" inert="" hidden="" aria-hidden="true" class="stack future"><h3></h3>
+<section style="top: 350px; display: none;" inert=""><h3>Arreglos</h3>
+<p>Los Arreglos son el tipo compuesto mas importante en los lenguajes de alto nivel. Es una agrupación de elementos (usualmente) homogeneos en la cual los elementos individuales son identificados por su posición en la agrupación relativo a su primer elemento. </p>
+</section>
+<section class="future" aria-hidden="true" style="top: 350px; display: none;" inert=""><h3><span style="color:blue;">Cuestiones de Diseño de Arreglos</span></h3>
+<ul><li class="fragment highlight-current-blue" data-fragment-index="0">¿Cuales tipos son legales para ser subíndices?</li>
+<li class="fragment highlight-current-blue" data-fragment-index="1">¿Es chequeado que el subíndice cumpla el rango definido?</li>
+<li class="fragment highlight-current-blue" data-fragment-index="2">¿Cuándo se liga el rango de subíndices?</li>
+<li class="fragment highlight-current-blue" data-fragment-index="3">¿Cuándo tiene lugar el alojamiento de espacio?</li>
+<li class="fragment highlight-current-blue" data-fragment-index="4">¿Cual es el número máximo de subíndices?</li>
+<li class="fragment highlight-current-blue" data-fragment-index="5">¿Pueden los arreglos ser inicializados?</li>
+<li class="fragment highlight-current-blue" data-fragment-index="6">¿Se pueden definir porciones (slices) de arreglos?</li>
+</ul>
+</section>
+<section class="future" aria-hidden="true" style="top: 350px; display: none;" inert=""><h3><span style="color:magenta;">Accediendo a los elementos del Arreglo</span></h3>
+<div style="font-size: 90%;">
+<p>Es una función desde subíndices a elementos</p>
+<span style="color:magenta;"><p><code>array_name(index_value_list)</code>
+ <span class="MathJax_Preview" style="color: inherit;"></span><span class="MathJax" id="MathJax-Element-1-Frame" tabindex="0" data-mathml="&lt;math xmlns=&quot;http://www.w3.org/1998/Math/MathML&quot;&gt;&lt;mo stretchy=&quot;false&quot;&gt;&amp;#x2192;&lt;/mo&gt;&lt;/math&gt;" role="presentation" style="position: relative;"><nobr aria-hidden="true"><span class="math" id="MathJax-Span-1" style="width: 1.035em; display: inline-block;"><span style="display: inline-block; position: relative; width: 0.974em; height: 0px; font-size: 103%;"><span style="position: absolute; clip: rect(1.52em, 1000.91em, 2.37em, -999.997em); top: -2.181em; left: 0em;"><span class="mrow" id="MathJax-Span-2"><span class="mo" id="MathJax-Span-3" style="font-family: MathJax_Main;">→</span></span><span style="display: inline-block; width: 0px; height: 2.187em;"></span></span></span><span style="display: inline-block; overflow: hidden; vertical-align: -0.059em; border-left: 0px solid; width: 0px; height: 0.691em;"></span></span></nobr><span class="MJX_Assistive_MathML" role="presentation"><math xmlns="http://www.w3.org/1998/Math/MathML"><mo stretchy="false">→</mo></math></span></span><script type="math/tex" id="MathJax-Element-1">\to</script> <code>an element</code>
+</p>
+</span><center><b>Sintaxis</b>
+</center>
+<ul><li>FORTRAN, PL/I, Ada usan <em>paréntesis</em>
+</li>
+<li>Ada explícitamente usa paréntesis para mostrar uniformidad entre referencia de arreglos y llamadas a función porque ambas mapean resultados</li>
+<li>La mayoría de los otros lenguajes usan <em>corchetes</em>
+</li>
+</ul>
+</div></section>
+<section class="future" aria-hidden="true" style="top: 350px; display: none;" inert=""><h3>Tipos de los subíndices de los arreglos</h3>
+<ul><li class="fragment fade-in-then-semi-out" data-fragment-index="0">FORTRAN, C: solo enteros (integer)</li>
+<li class="fragment fade-in-then-semi-out" data-fragment-index="1">PASCAL: cualquier tipo ordinal (integer, boolean, char, enumeration)</li>
+<li class="fragment fade-in-then-semi-out" data-fragment-index="2">Ada: Enteros y enumeración (incluídos char y booleanos)</li>
+<li class="fragment fade-in-then-semi-out" data-fragment-index="3">Java: solo tipos enteros</li>
+<li class="fragment fade-in-then-semi-out" data-fragment-index="4">C, C++, Perl, y Fortran no especifican chequeo de rango</li>
+<li class="fragment fade-in-then-semi-out" data-fragment-index="5">Java, ML, C#, especifican chequeo de rango</li>
+</ul>
+</section>
+<section class="future" aria-hidden="true" style="top: 350px; display: none;" inert=""><h3>Categoría de Arreglos</h3>
+<div style="font-size: 75%;">
+<ul><li class="fragment fade-in-then-semi-out" data-fragment-index="0"><b>Estático:</b>
+ rango de subíndices son ligados estáticamente y el alojamiento de memoria es estático (antes del tiempo de ejecución) <em>ventaja:</em>
+ eficiencia (no hay alojamiento dinámico)</li>
+<li class="fragment fade-in-then-semi-out" data-fragment-index="1"><b>(stack)dinámico Fijo:</b>
+ los subíndices son ligados estáticamente, pero el alojamiento es hecho en tiempo de declaración <em>ventaja:</em>
+ eficiencia de espacio</li>
+<li class="fragment fade-in-then-semi-out" data-fragment-index="2"><b>(stack)dinámico:</b>
+ rangos de subíndices son ligados dinámicamente y el almacenamiento es dinámico (hecho en tiempo de ejecución)</li>
+<li class="fragment fade-in-then-semi-out" data-fragment-index="3"><b>(heap)dinámico Fijo:</b>
+ el almacenamiento es ligado dinámicamente pero fijo después del alojamiento.</li>
+<li class="fragment fade-in-then-semi-out" data-fragment-index="4"><b>(heap)dinámico:</b>
+ la ligadura de los subíndices y el almacenamiento es dinámico y puede cambiar <em>ventaja:</em>
+ flexibilidad (los arreglos pueden crecer o disminuir durante la ejecución del programa)</li>
+</ul>
+</div></section>
+<section class="future" aria-hidden="true" style="top: 350px; display: none;" inert=""><h3>Categoría de Arreglos</h3>
+<ul><li class="fragment fade-in-then-semi-out" data-fragment-index="0">Los arreglos de <b>C</b>
+ y <b>C++</b>
+ que incluyen el modificador <code>static</code>
+ son <em>Estáticos</em>
+</li>
+<li class="fragment fade-in-then-semi-out" data-fragment-index="1">Los arreglos de <b>C</b>
+ y <b>C++</b>
+ sin el modificador <code>static</code>
+ son <em>(stack)dinámicos Fijos</em>
+</li>
+<li class="fragment fade-in-then-semi-out" data-fragment-index="2">Los arreglos de <b>Ada</b>
+ pueden ser <em>(stack)dinámicos</em>
+</li>
+<li class="fragment fade-in-then-semi-out" data-fragment-index="3"><b>C</b>
+ y <b>C++</b>
+ proveen arreglos <em>(heap)dinámicos Fijos</em>
+ (<b>C#</b>
+ con sus <code>ArrayList</code>
+)</li>
+<li class="fragment fade-in-then-semi-out" data-fragment-index="4"><b>Perl</b>
+ y <b>JavaScript</b>
+ soporta arreglos <em>(heap)dinámicos.</em>
+</li>
+</ul>
+</section>
+<section class="future" aria-hidden="true" style="top: 350px; display: none;" inert=""><h3>(Stack) Dinámicos fijos</h3>
+<div class="figure">
+<img src="./Tipos de Datos_files/adaarreglo.png" width="auto" height="500">
+
+</div>
+</section>
+<section class="future" aria-hidden="true" style="top: 350px; display: none;" inert=""><h3>Arreglos</h3>
+<p><span style="color:purple;">Elementos Contiguos</span></p>
+<ol><li>Dirigido por Columnas - solo en <b>Fortrand</b>
+</li>
+<li>Dirigido por filas<ul><li>usada por el resto de lenguajes</li>
+<li>hace que el <code>array [a..b,c..d]</code>
+ sea igual a <code>array [a..b] of array [c..d]</code>
+</li>
+</ul>
+</li>
+</ol>
+</section>
+<section class="future" aria-hidden="true" style="top: 350px; display: none;" inert=""><h3>Arreglos</h3>
+<div class="figure">
+<img src="./Tipos de Datos_files/rowcolumnmajor.png" width="auto" height="auto">
+
+</div>
+</section>
+<section class="future" aria-hidden="true" style="top: 350px; display: none;" inert=""><h3>Arreglos</h3>
+<div style="font-size: 90%;">
+<p><b>Dos estrategias para arreglos</b>
+</p>
+<ul><li class="fragment appear" data-fragment-index="0">Elementos continuos</li>
+<li class="fragment appear" data-fragment-index="1">punteros de filas</li>
+</ul>
+<p><b>Punteros de Filas</b>
+</p>
+<ul><li class="fragment appear" data-fragment-index="2">una opción en <b>C</b>
+</li>
+<li class="fragment appear" data-fragment-index="3">permite a las filas colocarse en cualquier parte de la memoria</li>
+<li class="fragment appear" data-fragment-index="4">bueno para matrices cuando las filas son de diferente longitud<p><span style="color:yellow;">ejemplo arreglo de strings</span></p>
+</li>
+<li class="fragment appear" data-fragment-index="5">requiere espacio para los punteros</li>
+</ul>
+</div></section>
+<section class="future" aria-hidden="true" style="top: 350px; display: none;" inert=""><h3>Arreglos</h3>
+<div class="figure">
+<img src="./Tipos de Datos_files/arraypontrowc.png" width="auto" height="auto">
+
+</div>
+</section>
+<section class="future" aria-hidden="true" style="top: 350px; display: none;" inert=""><h3><span style="color:blue;">Inicialización de Arreglos</span></h3>
+<p>Algunos Lenguajes permiten inicialización en el tiempo de alojamiento.</p>
+<ul><li class="fragment highlight-current-blue" data-fragment-index="0">ejemplo de <b>C, C++, Java, C#</b>
+<p><code><span style="color:yellow;">int list [] = {4, 5, 7, 83}</span></code>
+</p>
+</li>
+<li class="fragment highlight-current-blue" data-fragment-index="1">cadena de caracteres en <b>C</b>
+ y <b>C++</b>
+<p><code><span style="color:yellow;">char name [] = "freddie";</span></code>
+</p>
+</li>
+<li class="fragment highlight-current-blue" data-fragment-index="2">Arreglo of strings en <b>C</b>
+ y <b>C++</b>
+<p><code><span style="color:yellow;">char *names [] = {"bob", "jake", "Joe"};</span></code>
+</p>
+</li>
+<li class="fragment highlight-current-blue" data-fragment-index="3"><b>Java</b>
+<p><code><span style="color:yellow;">String[] names = {"Bob", "Jake", "Joe"};</span></code>
+</p>
+</li>
+</ul>
+</section>
+<section class="future" aria-hidden="true" style="top: 350px; display: none;" inert=""><h3><span style="color:orange;">Operaciones de Arreglos</span></h3>
+<div style="font-size: 95%;">
+<ul><li class="fragment appear" data-fragment-index="0"><b><span style="color:orange;">APL</span></b>
+ provee el mas poderoso conjunto de operadores para procesar vectores y matrices y operaciones unarias (por ejemplo revertir elementos de una columna)</li>
+<li class="fragment appear" data-fragment-index="1"><b><span style="color:orange;">Ada</span></b>
+ permite asignación de arreglos y concatenación</li>
+<li class="fragment appear" data-fragment-index="2"><b><span style="color:orange;">Fortran</span></b>
+ provee operaciones <em>elementales</em>
+ a causa de que son entre pares de elementos del arreglo<center>Por ejemplo, el operador + entre dos arreglos resulta en un arreglo con la suma de los pares de elementos de los dos arreglos.</center>
+</li>
+</ul>
+</div></section>
+<section class="future" aria-hidden="true" style="top: 350px; display: none;" inert=""><h3>Arreglos</h3>
+<div style="font-size: 85%;">
+<p>Ejemplo</p>
+<p><code>A : array [L1..U1] of array [L2::U2] of array [L3..U3] of elem;</code>
+</p>
+<ul><li><span class="MathJax_Preview" style="color: inherit;"></span><span class="MathJax" id="MathJax-Element-2-Frame" tabindex="0" data-mathml="&lt;math xmlns=&quot;http://www.w3.org/1998/Math/MathML&quot;&gt;&lt;mi&gt;D&lt;/mi&gt;&lt;mn&gt;1&lt;/mn&gt;&lt;mo&gt;=&lt;/mo&gt;&lt;mi&gt;U&lt;/mi&gt;&lt;mn&gt;1&lt;/mn&gt;&lt;mo&gt;&amp;#x2212;&lt;/mo&gt;&lt;mi&gt;L&lt;/mi&gt;&lt;mn&gt;1&lt;/mn&gt;&lt;mo&gt;+&lt;/mo&gt;&lt;mn&gt;1&lt;/mn&gt;&lt;/math&gt;" role="presentation" style="position: relative;"><nobr aria-hidden="true"><span class="math" id="MathJax-Span-4" style="width: 8.438em; display: inline-block;"><span style="display: inline-block; position: relative; width: 8.195em; height: 0px; font-size: 103%;"><span style="position: absolute; clip: rect(1.338em, 1008.13em, 2.43em, -999.997em); top: -2.181em; left: 0em;"><span class="mrow" id="MathJax-Span-5"><span class="mi" id="MathJax-Span-6" style="font-family: MathJax_Math-italic;">D</span><span class="mn" id="MathJax-Span-7" style="font-family: MathJax_Main;">1</span><span class="mo" id="MathJax-Span-8" style="font-family: MathJax_Main; padding-left: 0.306em;">=</span><span class="mi" id="MathJax-Span-9" style="font-family: MathJax_Math-italic; padding-left: 0.306em;">U<span style="display: inline-block; overflow: hidden; height: 1px; width: 0.064em;"></span></span><span class="mn" id="MathJax-Span-10" style="font-family: MathJax_Main;">1</span><span class="mo" id="MathJax-Span-11" style="font-family: MathJax_Main; padding-left: 0.246em;">−</span><span class="mi" id="MathJax-Span-12" style="font-family: MathJax_Math-italic; padding-left: 0.246em;">L</span><span class="mn" id="MathJax-Span-13" style="font-family: MathJax_Main;">1</span><span class="mo" id="MathJax-Span-14" style="font-family: MathJax_Main; padding-left: 0.246em;">+</span><span class="mn" id="MathJax-Span-15" style="font-family: MathJax_Main; padding-left: 0.246em;">1</span></span><span style="display: inline-block; width: 0px; height: 2.187em;"></span></span></span><span style="display: inline-block; overflow: hidden; vertical-align: -0.122em; border-left: 0px solid; width: 0px; height: 0.941em;"></span></span></nobr><span class="MJX_Assistive_MathML" role="presentation"><math xmlns="http://www.w3.org/1998/Math/MathML"><mi>D</mi><mn>1</mn><mo>=</mo><mi>U</mi><mn>1</mn><mo>−</mo><mi>L</mi><mn>1</mn><mo>+</mo><mn>1</mn></math></span></span><script type="math/tex" id="MathJax-Element-2">D1 = U1 - L1 + 1</script></li>
+<li><span class="MathJax_Preview" style="color: inherit;"></span><span class="MathJax" id="MathJax-Element-3-Frame" tabindex="0" data-mathml="&lt;math xmlns=&quot;http://www.w3.org/1998/Math/MathML&quot;&gt;&lt;mi&gt;D&lt;/mi&gt;&lt;mn&gt;2&lt;/mn&gt;&lt;mo&gt;=&lt;/mo&gt;&lt;mi&gt;U&lt;/mi&gt;&lt;mn&gt;2&lt;/mn&gt;&lt;mo&gt;&amp;#x2212;&lt;/mo&gt;&lt;mi&gt;L&lt;/mi&gt;&lt;mn&gt;2&lt;/mn&gt;&lt;mo&gt;+&lt;/mo&gt;&lt;mn&gt;1&lt;/mn&gt;&lt;/math&gt;" role="presentation" style="position: relative;"><nobr aria-hidden="true"><span class="math" id="MathJax-Span-16" style="width: 8.438em; display: inline-block;"><span style="display: inline-block; position: relative; width: 8.195em; height: 0px; font-size: 103%;"><span style="position: absolute; clip: rect(1.338em, 1008.13em, 2.43em, -999.997em); top: -2.181em; left: 0em;"><span class="mrow" id="MathJax-Span-17"><span class="mi" id="MathJax-Span-18" style="font-family: MathJax_Math-italic;">D</span><span class="mn" id="MathJax-Span-19" style="font-family: MathJax_Main;">2</span><span class="mo" id="MathJax-Span-20" style="font-family: MathJax_Main; padding-left: 0.306em;">=</span><span class="mi" id="MathJax-Span-21" style="font-family: MathJax_Math-italic; padding-left: 0.306em;">U<span style="display: inline-block; overflow: hidden; height: 1px; width: 0.064em;"></span></span><span class="mn" id="MathJax-Span-22" style="font-family: MathJax_Main;">2</span><span class="mo" id="MathJax-Span-23" style="font-family: MathJax_Main; padding-left: 0.246em;">−</span><span class="mi" id="MathJax-Span-24" style="font-family: MathJax_Math-italic; padding-left: 0.246em;">L</span><span class="mn" id="MathJax-Span-25" style="font-family: MathJax_Main;">2</span><span class="mo" id="MathJax-Span-26" style="font-family: MathJax_Main; padding-left: 0.246em;">+</span><span class="mn" id="MathJax-Span-27" style="font-family: MathJax_Main; padding-left: 0.246em;">1</span></span><span style="display: inline-block; width: 0px; height: 2.187em;"></span></span></span><span style="display: inline-block; overflow: hidden; vertical-align: -0.122em; border-left: 0px solid; width: 0px; height: 0.941em;"></span></span></nobr><span class="MJX_Assistive_MathML" role="presentation"><math xmlns="http://www.w3.org/1998/Math/MathML"><mi>D</mi><mn>2</mn><mo>=</mo><mi>U</mi><mn>2</mn><mo>−</mo><mi>L</mi><mn>2</mn><mo>+</mo><mn>1</mn></math></span></span><script type="math/tex" id="MathJax-Element-3">D2 = U2 - L2 + 1</script></li>
+<li><span class="MathJax_Preview" style="color: inherit;"></span><span class="MathJax" id="MathJax-Element-4-Frame" tabindex="0" data-mathml="&lt;math xmlns=&quot;http://www.w3.org/1998/Math/MathML&quot;&gt;&lt;mi&gt;D&lt;/mi&gt;&lt;mn&gt;3&lt;/mn&gt;&lt;mo&gt;=&lt;/mo&gt;&lt;mi&gt;U&lt;/mi&gt;&lt;mn&gt;3&lt;/mn&gt;&lt;mo&gt;&amp;#x2212;&lt;/mo&gt;&lt;mi&gt;L&lt;/mi&gt;&lt;mn&gt;3&lt;/mn&gt;&lt;mo&gt;+&lt;/mo&gt;&lt;mn&gt;1&lt;/mn&gt;&lt;/math&gt;" role="presentation" style="position: relative;"><nobr aria-hidden="true"><span class="math" id="MathJax-Span-28" style="width: 8.438em; display: inline-block;"><span style="display: inline-block; position: relative; width: 8.195em; height: 0px; font-size: 103%;"><span style="position: absolute; clip: rect(1.338em, 1008.13em, 2.43em, -999.997em); top: -2.181em; left: 0em;"><span class="mrow" id="MathJax-Span-29"><span class="mi" id="MathJax-Span-30" style="font-family: MathJax_Math-italic;">D</span><span class="mn" id="MathJax-Span-31" style="font-family: MathJax_Main;">3</span><span class="mo" id="MathJax-Span-32" style="font-family: MathJax_Main; padding-left: 0.306em;">=</span><span class="mi" id="MathJax-Span-33" style="font-family: MathJax_Math-italic; padding-left: 0.306em;">U<span style="display: inline-block; overflow: hidden; height: 1px; width: 0.064em;"></span></span><span class="mn" id="MathJax-Span-34" style="font-family: MathJax_Main;">3</span><span class="mo" id="MathJax-Span-35" style="font-family: MathJax_Main; padding-left: 0.246em;">−</span><span class="mi" id="MathJax-Span-36" style="font-family: MathJax_Math-italic; padding-left: 0.246em;">L</span><span class="mn" id="MathJax-Span-37" style="font-family: MathJax_Main;">3</span><span class="mo" id="MathJax-Span-38" style="font-family: MathJax_Main; padding-left: 0.246em;">+</span><span class="mn" id="MathJax-Span-39" style="font-family: MathJax_Main; padding-left: 0.246em;">1</span></span><span style="display: inline-block; width: 0px; height: 2.187em;"></span></span></span><span style="display: inline-block; overflow: hidden; vertical-align: -0.122em; border-left: 0px solid; width: 0px; height: 0.941em;"></span></span></nobr><span class="MJX_Assistive_MathML" role="presentation"><math xmlns="http://www.w3.org/1998/Math/MathML"><mi>D</mi><mn>3</mn><mo>=</mo><mi>U</mi><mn>3</mn><mo>−</mo><mi>L</mi><mn>3</mn><mo>+</mo><mn>1</mn></math></span></span><script type="math/tex" id="MathJax-Element-4">D3 = U3 - L3 + 1</script></li>
+<li><span class="MathJax_Preview" style="color: inherit;"></span><span class="MathJax" id="MathJax-Element-5-Frame" tabindex="0" data-mathml="&lt;math xmlns=&quot;http://www.w3.org/1998/Math/MathML&quot;&gt;&lt;mi&gt;S&lt;/mi&gt;&lt;mn&gt;3&lt;/mn&gt;&lt;mo&gt;=&lt;/mo&gt;&lt;/math&gt;" role="presentation" style="position: relative;"><nobr aria-hidden="true"><span class="math" id="MathJax-Span-40" style="width: 2.309em; display: inline-block;"><span style="display: inline-block; position: relative; width: 2.248em; height: 0px; font-size: 103%;"><span style="position: absolute; clip: rect(1.277em, 1002.19em, 2.37em, -999.997em); top: -2.181em; left: 0em;"><span class="mrow" id="MathJax-Span-41"><span class="mi" id="MathJax-Span-42" style="font-family: MathJax_Math-italic;">S<span style="display: inline-block; overflow: hidden; height: 1px; width: 0.064em;"></span></span><span class="mn" id="MathJax-Span-43" style="font-family: MathJax_Main;">3</span><span class="mo" id="MathJax-Span-44" style="font-family: MathJax_Main; padding-left: 0.306em;">=</span></span><span style="display: inline-block; width: 0px; height: 2.187em;"></span></span></span><span style="display: inline-block; overflow: hidden; vertical-align: -0.059em; border-left: 0px solid; width: 0px; height: 0.878em;"></span></span></nobr><span class="MJX_Assistive_MathML" role="presentation"><math xmlns="http://www.w3.org/1998/Math/MathML"><mi>S</mi><mn>3</mn><mo>=</mo></math></span></span><script type="math/tex" id="MathJax-Element-5">S3 = </script> tamaño de <code>elem</code>
+</li>
+<li><span class="MathJax_Preview" style="color: inherit;"></span><span class="MathJax" id="MathJax-Element-6-Frame" tabindex="0" data-mathml="&lt;math xmlns=&quot;http://www.w3.org/1998/Math/MathML&quot;&gt;&lt;mi&gt;S&lt;/mi&gt;&lt;mn&gt;2&lt;/mn&gt;&lt;mo&gt;=&lt;/mo&gt;&lt;mi&gt;D&lt;/mi&gt;&lt;mn&gt;3&lt;/mn&gt;&lt;mo&gt;&amp;#x2217;&lt;/mo&gt;&lt;mi&gt;S&lt;/mi&gt;&lt;mn&gt;3&lt;/mn&gt;&lt;/math&gt;" role="presentation" style="position: relative;"><nobr aria-hidden="true"><span class="math" id="MathJax-Span-45" style="width: 6.253em; display: inline-block;"><span style="display: inline-block; position: relative; width: 6.071em; height: 0px; font-size: 103%;"><span style="position: absolute; clip: rect(1.277em, 1006.01em, 2.37em, -999.997em); top: -2.181em; left: 0em;"><span class="mrow" id="MathJax-Span-46"><span class="mi" id="MathJax-Span-47" style="font-family: MathJax_Math-italic;">S<span style="display: inline-block; overflow: hidden; height: 1px; width: 0.064em;"></span></span><span class="mn" id="MathJax-Span-48" style="font-family: MathJax_Main;">2</span><span class="mo" id="MathJax-Span-49" style="font-family: MathJax_Main; padding-left: 0.306em;">=</span><span class="mi" id="MathJax-Span-50" style="font-family: MathJax_Math-italic; padding-left: 0.306em;">D</span><span class="mn" id="MathJax-Span-51" style="font-family: MathJax_Main;">3</span><span class="mo" id="MathJax-Span-52" style="font-family: MathJax_Main; padding-left: 0.246em;">∗</span><span class="mi" id="MathJax-Span-53" style="font-family: MathJax_Math-italic; padding-left: 0.246em;">S<span style="display: inline-block; overflow: hidden; height: 1px; width: 0.064em;"></span></span><span class="mn" id="MathJax-Span-54" style="font-family: MathJax_Main;">3</span></span><span style="display: inline-block; width: 0px; height: 2.187em;"></span></span></span><span style="display: inline-block; overflow: hidden; vertical-align: -0.059em; border-left: 0px solid; width: 0px; height: 0.878em;"></span></span></nobr><span class="MJX_Assistive_MathML" role="presentation"><math xmlns="http://www.w3.org/1998/Math/MathML"><mi>S</mi><mn>2</mn><mo>=</mo><mi>D</mi><mn>3</mn><mo>∗</mo><mi>S</mi><mn>3</mn></math></span></span><script type="math/tex" id="MathJax-Element-6">S2 = D3 * S3</script></li>
+<li><span class="MathJax_Preview" style="color: inherit;"></span><span class="MathJax" id="MathJax-Element-7-Frame" tabindex="0" data-mathml="&lt;math xmlns=&quot;http://www.w3.org/1998/Math/MathML&quot;&gt;&lt;mi&gt;S&lt;/mi&gt;&lt;mn&gt;1&lt;/mn&gt;&lt;mo&gt;=&lt;/mo&gt;&lt;mi&gt;D&lt;/mi&gt;&lt;mn&gt;2&lt;/mn&gt;&lt;mo&gt;&amp;#x2217;&lt;/mo&gt;&lt;mi&gt;S&lt;/mi&gt;&lt;mn&gt;2&lt;/mn&gt;&lt;/math&gt;" role="presentation" style="position: relative;"><nobr aria-hidden="true"><span class="math" id="MathJax-Span-55" style="width: 6.253em; display: inline-block;"><span style="display: inline-block; position: relative; width: 6.071em; height: 0px; font-size: 103%;"><span style="position: absolute; clip: rect(1.277em, 1006.01em, 2.37em, -999.997em); top: -2.181em; left: 0em;"><span class="mrow" id="MathJax-Span-56"><span class="mi" id="MathJax-Span-57" style="font-family: MathJax_Math-italic;">S<span style="display: inline-block; overflow: hidden; height: 1px; width: 0.064em;"></span></span><span class="mn" id="MathJax-Span-58" style="font-family: MathJax_Main;">1</span><span class="mo" id="MathJax-Span-59" style="font-family: MathJax_Main; padding-left: 0.306em;">=</span><span class="mi" id="MathJax-Span-60" style="font-family: MathJax_Math-italic; padding-left: 0.306em;">D</span><span class="mn" id="MathJax-Span-61" style="font-family: MathJax_Main;">2</span><span class="mo" id="MathJax-Span-62" style="font-family: MathJax_Main; padding-left: 0.246em;">∗</span><span class="mi" id="MathJax-Span-63" style="font-family: MathJax_Math-italic; padding-left: 0.246em;">S<span style="display: inline-block; overflow: hidden; height: 1px; width: 0.064em;"></span></span><span class="mn" id="MathJax-Span-64" style="font-family: MathJax_Main;">2</span></span><span style="display: inline-block; width: 0px; height: 2.187em;"></span></span></span><span style="display: inline-block; overflow: hidden; vertical-align: -0.059em; border-left: 0px solid; width: 0px; height: 0.878em;"></span></span></nobr><span class="MJX_Assistive_MathML" role="presentation"><math xmlns="http://www.w3.org/1998/Math/MathML"><mi>S</mi><mn>1</mn><mo>=</mo><mi>D</mi><mn>2</mn><mo>∗</mo><mi>S</mi><mn>2</mn></math></span></span><script type="math/tex" id="MathJax-Element-7">S1 = D2 * S2</script></li>
+</ul>
+<p><span class="MathJax_Preview" style="color: inherit;"></span><span class="MathJax" id="MathJax-Element-8-Frame" tabindex="0" data-mathml="&lt;math xmlns=&quot;http://www.w3.org/1998/Math/MathML&quot;&gt;&lt;mi&gt;A&lt;/mi&gt;&lt;mo stretchy=&quot;false&quot;&gt;(&lt;/mo&gt;&lt;mi&gt;i&lt;/mi&gt;&lt;mo&gt;,&lt;/mo&gt;&lt;mi&gt;j&lt;/mi&gt;&lt;mo&gt;,&lt;/mo&gt;&lt;mi&gt;k&lt;/mi&gt;&lt;mo stretchy=&quot;false&quot;&gt;)&lt;/mo&gt;&lt;mo&gt;=&lt;/mo&gt;&lt;mstyle displaystyle=&quot;false&quot; scriptlevel=&quot;0&quot;&gt;&lt;mtext&gt;&amp;#xA0;address of A&amp;#xA0;&lt;/mtext&gt;&lt;/mstyle&gt;&lt;mo&gt;+&lt;/mo&gt;&lt;mo stretchy=&quot;false&quot;&gt;(&lt;/mo&gt;&lt;mi&gt;i&lt;/mi&gt;&lt;mo&gt;&amp;#x2217;&lt;/mo&gt;&lt;mi&gt;S&lt;/mi&gt;&lt;mn&gt;1&lt;/mn&gt;&lt;mo stretchy=&quot;false&quot;&gt;)&lt;/mo&gt;&lt;mo&gt;+&lt;/mo&gt;&lt;mo stretchy=&quot;false&quot;&gt;(&lt;/mo&gt;&lt;mi&gt;j&lt;/mi&gt;&lt;mo&gt;&amp;#x2217;&lt;/mo&gt;&lt;mi&gt;S&lt;/mi&gt;&lt;mn&gt;2&lt;/mn&gt;&lt;mo stretchy=&quot;false&quot;&gt;)&lt;/mo&gt;&lt;mo&gt;+&lt;/mo&gt;&lt;mo stretchy=&quot;false&quot;&gt;(&lt;/mo&gt;&lt;mi&gt;k&lt;/mi&gt;&lt;mo&gt;&amp;#x2217;&lt;/mo&gt;&lt;mi&gt;S&lt;/mi&gt;&lt;mn&gt;3&lt;/mn&gt;&lt;mo stretchy=&quot;false&quot;&gt;)&lt;/mo&gt;&lt;mo&gt;&amp;#x2212;&lt;/mo&gt;&lt;/math&gt;" role="presentation" style="position: relative;"><nobr aria-hidden="true"><span class="math" id="MathJax-Span-65" style="width: 26.399em; display: inline-block;"><span style="display: inline-block; position: relative; width: 25.61em; height: 0px; font-size: 103%;"><span style="position: absolute; clip: rect(1.277em, 1025.55em, 2.612em, -999.997em); top: -2.181em; left: 0em;"><span class="mrow" id="MathJax-Span-66"><span class="mi" id="MathJax-Span-67" style="font-family: MathJax_Math-italic;">A</span><span class="mo" id="MathJax-Span-68" style="font-family: MathJax_Main;">(</span><span class="mi" id="MathJax-Span-69" style="font-family: MathJax_Math-italic;">i</span><span class="mo" id="MathJax-Span-70" style="font-family: MathJax_Main;">,</span><span class="mi" id="MathJax-Span-71" style="font-family: MathJax_Math-italic; padding-left: 0.185em;">j</span><span class="mo" id="MathJax-Span-72" style="font-family: MathJax_Main;">,</span><span class="mi" id="MathJax-Span-73" style="font-family: MathJax_Math-italic; padding-left: 0.185em;">k</span><span class="mo" id="MathJax-Span-74" style="font-family: MathJax_Main;">)</span><span class="mo" id="MathJax-Span-75" style="font-family: MathJax_Main; padding-left: 0.306em;">=</span><span class="mstyle" id="MathJax-Span-76" style="padding-left: 0.306em;"><span class="mrow" id="MathJax-Span-77"><span class="mtext" id="MathJax-Span-78" style="font-family: MathJax_Main;">&nbsp;address of A&nbsp;</span></span></span><span class="mo" id="MathJax-Span-79" style="font-family: MathJax_Main; padding-left: 0.246em;">+</span><span class="mo" id="MathJax-Span-80" style="font-family: MathJax_Main; padding-left: 0.246em;">(</span><span class="mi" id="MathJax-Span-81" style="font-family: MathJax_Math-italic;">i</span><span class="mo" id="MathJax-Span-82" style="font-family: MathJax_Main; padding-left: 0.246em;">∗</span><span class="mi" id="MathJax-Span-83" style="font-family: MathJax_Math-italic; padding-left: 0.246em;">S<span style="display: inline-block; overflow: hidden; height: 1px; width: 0.064em;"></span></span><span class="mn" id="MathJax-Span-84" style="font-family: MathJax_Main;">1</span><span class="mo" id="MathJax-Span-85" style="font-family: MathJax_Main;">)</span><span class="mo" id="MathJax-Span-86" style="font-family: MathJax_Main; padding-left: 0.246em;">+</span><span class="mo" id="MathJax-Span-87" style="font-family: MathJax_Main; padding-left: 0.246em;">(</span><span class="mi" id="MathJax-Span-88" style="font-family: MathJax_Math-italic;">j</span><span class="mo" id="MathJax-Span-89" style="font-family: MathJax_Main; padding-left: 0.246em;">∗</span><span class="mi" id="MathJax-Span-90" style="font-family: MathJax_Math-italic; padding-left: 0.246em;">S<span style="display: inline-block; overflow: hidden; height: 1px; width: 0.064em;"></span></span><span class="mn" id="MathJax-Span-91" style="font-family: MathJax_Main;">2</span><span class="mo" id="MathJax-Span-92" style="font-family: MathJax_Main;">)</span><span class="mo" id="MathJax-Span-93" style="font-family: MathJax_Main; padding-left: 0.246em;">+</span><span class="mo" id="MathJax-Span-94" style="font-family: MathJax_Main; padding-left: 0.246em;">(</span><span class="mi" id="MathJax-Span-95" style="font-family: MathJax_Math-italic;">k</span><span class="mo" id="MathJax-Span-96" style="font-family: MathJax_Main; padding-left: 0.246em;">∗</span><span class="mi" id="MathJax-Span-97" style="font-family: MathJax_Math-italic; padding-left: 0.246em;">S<span style="display: inline-block; overflow: hidden; height: 1px; width: 0.064em;"></span></span><span class="mn" id="MathJax-Span-98" style="font-family: MathJax_Main;">3</span><span class="mo" id="MathJax-Span-99" style="font-family: MathJax_Main;">)</span><span class="mo" id="MathJax-Span-100" style="font-family: MathJax_Main;">−</span></span><span style="display: inline-block; width: 0px; height: 2.187em;"></span></span></span><span style="display: inline-block; overflow: hidden; vertical-align: -0.309em; border-left: 0px solid; width: 0px; height: 1.128em;"></span></span></nobr><span class="MJX_Assistive_MathML" role="presentation"><math xmlns="http://www.w3.org/1998/Math/MathML"><mi>A</mi><mo stretchy="false">(</mo><mi>i</mi><mo>,</mo><mi>j</mi><mo>,</mo><mi>k</mi><mo stretchy="false">)</mo><mo>=</mo><mstyle displaystyle="false" scriptlevel="0"><mtext>&nbsp;address of A&nbsp;</mtext></mstyle><mo>+</mo><mo stretchy="false">(</mo><mi>i</mi><mo>∗</mo><mi>S</mi><mn>1</mn><mo stretchy="false">)</mo><mo>+</mo><mo stretchy="false">(</mo><mi>j</mi><mo>∗</mo><mi>S</mi><mn>2</mn><mo stretchy="false">)</mo><mo>+</mo><mo stretchy="false">(</mo><mi>k</mi><mo>∗</mo><mi>S</mi><mn>3</mn><mo stretchy="false">)</mo><mo>−</mo></math></span></span><script type="math/tex" id="MathJax-Element-8"> A(i,j,k) = \mbox{ address of A } + (i * S1) + (j * S2) + (k * S3) - </script></p>
+<p><span class="MathJax_Preview" style="color: inherit;"></span><span class="MathJax" id="MathJax-Element-9-Frame" tabindex="0" data-mathml="&lt;math xmlns=&quot;http://www.w3.org/1998/Math/MathML&quot;&gt;&lt;mo stretchy=&quot;false&quot;&gt;[&lt;/mo&gt;&lt;mo stretchy=&quot;false&quot;&gt;(&lt;/mo&gt;&lt;mi&gt;L&lt;/mi&gt;&lt;mn&gt;1&lt;/mn&gt;&lt;mo&gt;&amp;#x2217;&lt;/mo&gt;&lt;mi&gt;S&lt;/mi&gt;&lt;mn&gt;1&lt;/mn&gt;&lt;mo stretchy=&quot;false&quot;&gt;)&lt;/mo&gt;&lt;mo&gt;+&lt;/mo&gt;&lt;mo stretchy=&quot;false&quot;&gt;(&lt;/mo&gt;&lt;mi&gt;L&lt;/mi&gt;&lt;mn&gt;2&lt;/mn&gt;&lt;mo&gt;&amp;#x2217;&lt;/mo&gt;&lt;mi&gt;S&lt;/mi&gt;&lt;mn&gt;2&lt;/mn&gt;&lt;mo stretchy=&quot;false&quot;&gt;)&lt;/mo&gt;&lt;mo&gt;+&lt;/mo&gt;&lt;mo stretchy=&quot;false&quot;&gt;(&lt;/mo&gt;&lt;mi&gt;L&lt;/mi&gt;&lt;mn&gt;3&lt;/mn&gt;&lt;mo&gt;&amp;#x2217;&lt;/mo&gt;&lt;mi&gt;S&lt;/mi&gt;&lt;mn&gt;3&lt;/mn&gt;&lt;mo stretchy=&quot;false&quot;&gt;)&lt;/mo&gt;&lt;mo stretchy=&quot;false&quot;&gt;]&lt;/mo&gt;&lt;/math&gt;" role="presentation" style="position: relative;"><nobr aria-hidden="true"><span class="math" id="MathJax-Span-101" style="width: 15.962em; display: inline-block;"><span style="display: inline-block; position: relative; width: 15.476em; height: 0px; font-size: 103%;"><span style="position: absolute; clip: rect(1.277em, 1015.36em, 2.612em, -999.997em); top: -2.181em; left: 0em;"><span class="mrow" id="MathJax-Span-102"><span class="mo" id="MathJax-Span-103" style="font-family: MathJax_Main;">[</span><span class="mo" id="MathJax-Span-104" style="font-family: MathJax_Main;">(</span><span class="mi" id="MathJax-Span-105" style="font-family: MathJax_Math-italic;">L</span><span class="mn" id="MathJax-Span-106" style="font-family: MathJax_Main;">1</span><span class="mo" id="MathJax-Span-107" style="font-family: MathJax_Main; padding-left: 0.246em;">∗</span><span class="mi" id="MathJax-Span-108" style="font-family: MathJax_Math-italic; padding-left: 0.246em;">S<span style="display: inline-block; overflow: hidden; height: 1px; width: 0.064em;"></span></span><span class="mn" id="MathJax-Span-109" style="font-family: MathJax_Main;">1</span><span class="mo" id="MathJax-Span-110" style="font-family: MathJax_Main;">)</span><span class="mo" id="MathJax-Span-111" style="font-family: MathJax_Main; padding-left: 0.246em;">+</span><span class="mo" id="MathJax-Span-112" style="font-family: MathJax_Main; padding-left: 0.246em;">(</span><span class="mi" id="MathJax-Span-113" style="font-family: MathJax_Math-italic;">L</span><span class="mn" id="MathJax-Span-114" style="font-family: MathJax_Main;">2</span><span class="mo" id="MathJax-Span-115" style="font-family: MathJax_Main; padding-left: 0.246em;">∗</span><span class="mi" id="MathJax-Span-116" style="font-family: MathJax_Math-italic; padding-left: 0.246em;">S<span style="display: inline-block; overflow: hidden; height: 1px; width: 0.064em;"></span></span><span class="mn" id="MathJax-Span-117" style="font-family: MathJax_Main;">2</span><span class="mo" id="MathJax-Span-118" style="font-family: MathJax_Main;">)</span><span class="mo" id="MathJax-Span-119" style="font-family: MathJax_Main; padding-left: 0.246em;">+</span><span class="mo" id="MathJax-Span-120" style="font-family: MathJax_Main; padding-left: 0.246em;">(</span><span class="mi" id="MathJax-Span-121" style="font-family: MathJax_Math-italic;">L</span><span class="mn" id="MathJax-Span-122" style="font-family: MathJax_Main;">3</span><span class="mo" id="MathJax-Span-123" style="font-family: MathJax_Main; padding-left: 0.246em;">∗</span><span class="mi" id="MathJax-Span-124" style="font-family: MathJax_Math-italic; padding-left: 0.246em;">S<span style="display: inline-block; overflow: hidden; height: 1px; width: 0.064em;"></span></span><span class="mn" id="MathJax-Span-125" style="font-family: MathJax_Main;">3</span><span class="mo" id="MathJax-Span-126" style="font-family: MathJax_Main;">)</span><span class="mo" id="MathJax-Span-127" style="font-family: MathJax_Main;">]</span></span><span style="display: inline-block; width: 0px; height: 2.187em;"></span></span></span><span style="display: inline-block; overflow: hidden; vertical-align: -0.309em; border-left: 0px solid; width: 0px; height: 1.128em;"></span></span></nobr><span class="MJX_Assistive_MathML" role="presentation"><math xmlns="http://www.w3.org/1998/Math/MathML"><mo stretchy="false">[</mo><mo stretchy="false">(</mo><mi>L</mi><mn>1</mn><mo>∗</mo><mi>S</mi><mn>1</mn><mo stretchy="false">)</mo><mo>+</mo><mo stretchy="false">(</mo><mi>L</mi><mn>2</mn><mo>∗</mo><mi>S</mi><mn>2</mn><mo stretchy="false">)</mo><mo>+</mo><mo stretchy="false">(</mo><mi>L</mi><mn>3</mn><mo>∗</mo><mi>S</mi><mn>3</mn><mo stretchy="false">)</mo><mo stretchy="false">]</mo></math></span></span><script type="math/tex" id="MathJax-Element-9"> [(L1 * S1) + (L2 * S2) + (L3 * S3)] </script></p>
+</div></section>
+<section class="future" aria-hidden="true" style="top: 350px; display: none;" inert=""><h3><span style="color:green;">Slices</span></h3>
+<p>Una <em>porción</em>
+ (slice) de un arreglo es una subestructura de un arreglo; un mecanismo de referenciación.</p>
+<p>Los <em>Slices</em>
+ son útilies en lenguages que tienen operaciones sobre arreglos (APL, FORTRAN etc).</p>
+</section>
+<section class="future" aria-hidden="true" style="top: 350px; display: none;" inert=""><h3><span style="color:green;">Slices</span></h3>
+<div class="figure">
+<img src="./Tipos de Datos_files/slicesfort.png" width="auto" height="auto">
+
+</div>
+</section>
+<section class="future" aria-hidden="true" style="top: 350px; display: none;" inert=""><h3><span style="color:blue;">Descriptores en Tiempo de Compilación</span></h3>
+<div class="figure">
+<img src="./Tipos de Datos_files/descriptoresarray.png" width="auto" height="auto">
+
+</div>
+</section>
+<section class="future" aria-hidden="true" style="top: 350px; display: none;" inert=""><h3><span style="color:blue;">Arreglos Asociativos</span></h3>
+<div style="font-size: 70%;">
+<ul><li class="fragment highlight-current-blue" data-fragment-index="0">Un <em>arreglo asociativo</em>
+ es una colección no ordenada de elementos de datos que son indexados por un numero igual de valores llamados <em>claves</em>
+ (keys)<center>claves definidas por el usuario deben ser almacenadas</center>
+</li>
+<li class="fragment highlight-current-blue" data-fragment-index="1">Ahora llamados <em>Diccionarios</em>
+</li>
+<li class="fragment highlight-current-blue" data-fragment-index="2">en <b>PERL</b>
+<ul><li class="fragment highlight-current-blue" data-fragment-index="3">Nombres comenzando con <code>%;</code>
+ literales son delimitados con paréntesis<p><code>%hi_temps~ = ("Mon" =&gt; 77, "Tue" =&gt; 79, "Wed" =&gt; 65, ... ),</code>
+</p>
+</li>
+<li class="fragment highlight-current-blue" data-fragment-index="4">Para acceder se usan llaves y claves: <p><code>%hi_temps{"wed"} = 83;</code>
+</p>
+</li>
+<li class="fragment highlight-current-blue" data-fragment-index="5">Los elementos pueden ser removidos con <code>delete</code>
+<p><code>delete %hi_temps{"Tue"}</code>
+</p>
+</li>
+</ul>
+</li>
+</ul>
+</div></section>
+</section>
+<section style="top: 350px; display: none;" inert="" hidden="" aria-hidden="true" class="future"><h3>Strings</h3>
+<ul><li><em>Strings</em>
+ son en realidad arreglos de caracteres</li>
+<li>Son frecuentemente casos especiales, para darles flexibilidad (como polimorfismo y tamaño dinámico) que no es disponible para arreglos en general</li>
+<li>Es mas facil proveer estas cosas para <em>strings</em>
+ que para arreglos en general porque los <em>strings</em>
+son de una dimensión y no circulares.</li>
+</ul>
+</section>
+<section style="top: 350px; display: none;" inert="" hidden="" aria-hidden="true" class="future"><h2>Registros</h2>
+<div class="outline-text-2"></div>
+</section>
+<section style="top: 350px; display: none;" inert="" hidden="" aria-hidden="true" class="stack future"><h3></h3>
+<section style="top: 350px; display: none;" inert=""><h3><span style="color:orange;">Tipo Registro</span></h3>
+<ul><li>Un registro es un conjunto posiblemente heterogeneo de elementos de datos en el cual los elementos individuales son identificados por su nombre</li>
+<li><span style="color:orange;">Cuestiones de Diseño</span><ul><li>¿Cual es la sintaxis para referenciar los campos?</li>
+<li>¿Son permitidas las referencias elípticas?</li>
+</ul>
+</li>
+</ul>
+</section>
+<section class="future" aria-hidden="true" style="top: 350px; display: none;" inert=""><h3><span style="color:blue;">Tipo Registro</span></h3>
+<div style="font-size: 75%;">
+<ul><li>Cobol<pre><code data-highlighted="yes" class="hljs language-scss">
+<span class="hljs-number">01</span> EMPLOYEE-RECORD. 
+   <span class="hljs-number">02</span> EMPLOYEE-NAME. 
+      <span class="hljs-number">05</span> FIRST    PICTURE IS <span class="hljs-built_in">x</span>(<span class="hljs-number">20</span>). 
+      <span class="hljs-number">05</span> MIDDLE   PICTURE IS <span class="hljs-built_in">x</span>(<span class="hljs-number">10</span>). 
+      <span class="hljs-number">05</span> LAST     PICTURE IS <span class="hljs-built_in">x</span>(<span class="hljs-number">20</span>). 
+   <span class="hljs-number">02</span> HOURLY-RATE PICTURE IS <span class="hljs-number">99</span>v99. 
+</code></pre>
+</li>
+<li>Ada<pre><code data-highlighted="yes" class="hljs language-vbnet">
+type Employee_Name_Type <span class="hljs-built_in">is</span> record
+   First : <span class="hljs-type">String</span> (<span class="hljs-number">1</span>..<span class="hljs-number">20</span>);
+   Middle : <span class="hljs-type">String</span> (<span class="hljs-number">1</span>..<span class="hljs-number">10</span>);
+   Last : <span class="hljs-type">String</span> (<span class="hljs-number">1</span>..<span class="hljs-number">20</span>);
+<span class="hljs-keyword">end</span> record;
+type Employee_Record_Type <span class="hljs-built_in">is</span> record 
+   Employee_Name: Employee_Name_Type; 
+   Hourly_Rate: Float;
+<span class="hljs-keyword">end</span> record;
+<span class="hljs-symbol">Employee_Record:</span> Employee_Record_Type; 
+</code></pre>
+</li>
+</ul>
+</div></section>
+<section class="future" aria-hidden="true" style="top: 350px; display: none;" inert=""><h3><span style="color:blue;">Registros</span></h3>
+<div style="font-size: 90%;">
+<ul><li class="fragment highlight-current-blue" data-fragment-index="0">Referencia a los campos<ul><li class="fragment highlight-current-blue" data-fragment-index="1"><b>COBOL </b>
+<p><code>field_name OF record_name_1 OF ... OF record_name_n</code>
+</p>
+</li>
+<li class="fragment highlight-current-blue" data-fragment-index="2">Otros (notación con punto) <code>record_name_1.record_name_2. ... record_name_n.field_name</code>
+</li>
+</ul>
+</li>
+<li class="fragment highlight-current-blue" data-fragment-index="3">Referencias completamente calificadas: debe incluir todo el camino de nombres de registros.</li>
+<li class="fragment highlight-current-blue" data-fragment-index="4">Referencia elíptica: permite no especificar nombres intermedios siempre que la referencia no sea ambigua. Ej: <code>FIRST OF EMP-REC</code>
+ en <b>COBOL</b>
+</li>
+</ul>
+</div></section>
+<section class="future" aria-hidden="true" style="top: 350px; display: none;" inert=""><h3><span style="color:green;">Operaciónes de Registros</span></h3>
+<ul><li class="fragment highlight-current-green" data-fragment-index="0">La asignación es muy común si los tipos son identicos</li>
+<li class="fragment highlight-current-green" data-fragment-index="1"><b>Ada</b>
+ permite comparación de registros</li>
+<li class="fragment highlight-current-green" data-fragment-index="2">Los registros de <b>Ada</b>
+ pueden ser inicializados con conjunto de literales</li>
+<li class="fragment highlight-current-green" data-fragment-index="3"><b>COBOL</b>
+ provee <code>MOVE CORRESPONDING</code>
+<p>copia un campo de un registro origen al correspondiente campo en el registro destino.</p>
+</li>
+</ul>
+</section>
+<section class="future" aria-hidden="true" style="top: 350px; display: none;" inert=""><h3><span style="color:red;">Comparación con Arreglos</span></h3>
+<ul><li class="fragment highlight-current-red" data-fragment-index="0">Tiene un diseño directo y seguro</li>
+<li class="fragment highlight-current-red" data-fragment-index="1">Son usados cuando el agrupamiento de datos es heterogeneo</li>
+<li class="fragment highlight-current-red" data-fragment-index="2">El acceso es mucho mas rápido que en arreglos porque el acceso a los nombres de los campos es estático</li>
+</ul>
+</section>
+<section class="future" aria-hidden="true" style="top: 350px; display: none;" inert=""><h3><span style="color:purple;">Implementación de Registros</span></h3>
+<div class="figure">
+<img src="./Tipos de Datos_files/implementregistros.png" width="auto" height="auto">
+
+</div>
+<p>Un desplazamiento de dirección relativo al comienzo del registro es asociado con cada campo.</p>
+</section>
+<section class="future" aria-hidden="true" style="top: 350px; display: none;" inert=""><h3><span style="color:blue;">Tipo Uniones</span></h3>
+<div style="font-size: 85%;">
+<ul><li class="fragment highlight-current-blue" data-fragment-index="0">Una <em>Union</em>
+ es un tipo a cuyas variables se les permite almacenar diferentes valores de tipo (estructura) en diferentes tiempos durantes la ejecución.</li>
+<li class="fragment highlight-current-blue" data-fragment-index="1">Cuestiones de Diseño<ul><li class="fragment highlight-current-blue" data-fragment-index="2">¿Debería requerirse chequeo de tipos?</li>
+<li class="fragment highlight-current-blue" data-fragment-index="3">¿Deberían incluirse como tipos particulares de Registros?</li>
+</ul>
+</li>
+<li class="fragment highlight-current-blue" data-fragment-index="4"><b>Fortran, C, y C++</b>
+ proveen constructores de <em>Union</em>
+ sin soporte para chequeo de tipos se llaman <em>uniones libres</em>
+</li>
+<li class="fragment highlight-current-blue" data-fragment-index="5">Chequeo de tipos en <em>Uniones</em>
+ requieren que se incluya un indicador de tipo llamado <em>discriminante</em>
+<center>soportado por <em>Ada</em>
+</center>
+</li>
+</ul>
+</div></section>
+<section class="future" aria-hidden="true" style="top: 350px; display: none;" inert=""><h3><span style="color:green;">tipo Union de Ada</span></h3>
+<div style="font-size: 75%;">
+<pre><code data-highlighted="yes" class="hljs language-vbnet">
+type Shape <span class="hljs-built_in">is</span> (Circle, Triangle, Rectangle); 
+type Colors <span class="hljs-built_in">is</span> (Red, Green, Blue); 
+type Figure (Form: Shape) <span class="hljs-built_in">is</span> record 
+  Filled: <span class="hljs-type">Boolean</span>; 
+  Color: Colors; 
+  <span class="hljs-keyword">case</span> Form <span class="hljs-built_in">is</span>  
+      <span class="hljs-keyword">When</span> Circle =&gt; Diameter : Float; 
+      <span class="hljs-keyword">When</span> Triangle =&gt;  
+             LeftSide, Rightside: <span class="hljs-type">Integer</span>; 
+             Angle: Float; 
+      <span class="hljs-keyword">when</span> Rectangle =&gt; Side1,Side2: <span class="hljs-type">Integer</span>; 
+  <span class="hljs-keyword">end</span> <span class="hljs-keyword">case</span>; 
+<span class="hljs-keyword">end</span> record; 
+</code></pre>
+<div class="figure">
+<img src="./Tipos de Datos_files/adaunion.png" width="auto" height="250">
+
+</div>
+</div></section>
+<section class="future" aria-hidden="true" style="top: 350px; display: none;" inert=""><h3>Evaluación de Uniones</h3>
+<ul><li class="fragment fade-in-then-semi-out" data-fragment-index="0">También llamados registros variantes</li>
+<li class="fragment fade-in-then-semi-out" data-fragment-index="1">Es una construcción potencialmente insegura<center>no permite chequeo de tipos o es muy caro</center>
+</li>
+<li class="fragment fade-in-then-semi-out" data-fragment-index="2"><b>Java y C#</b>
+ no soportan uniones<center>Como reflejo de la creciente preocupación por la seguridad en los lenguajes de programación</center>
+</li>
+<li class="fragment fade-in-then-semi-out" data-fragment-index="3">La falta de discriminante (tag) significa que uno no sabe lo que hay almacenado,</li>
+<li class="fragment fade-in-then-semi-out" data-fragment-index="4">La posibilidad de cambiar el discriminante permite acceder a campos erroneamente</li>
+</ul>
+</section>
+</section>
+<section style="top: 350px; display: none;" inert="" hidden="" aria-hidden="true" class="future"><h2>Punteros y Tipos Recursivos</h2>
+<div class="outline-text-2"></div>
+</section>
+<section style="top: 350px; display: none;" inert="" hidden="" aria-hidden="true" class="stack future"><h3></h3>
+<section style="top: 350px; display: none;" inert=""><h3><span style="color:magenta;">Tipo Punteros</span></h3>
+<ul><li>Los Punteros sirven para dos propósitos:<ol><li>acceso eficiente (y a veces intuitivo) a objetos muy elaborados (como en <b>C</b>
+)</li>
+<li>creación dinámica de estructuras ligadas, en conjunción con administración de memoria <em>heap</em>
+</li>
+</ol>
+</li>
+<li>Varios lenguajes (e.g. <b>Pascal</b>
+ restringen los punteros para acceder a cosas en el <em>heap</em>
+</li>
+<li>Los punteros son usados en un modo <em>por valor</em>
+ de las variables<center>No se necesitan como modo <em>por referencia</em>
+</center>
+</li>
+</ul>
+</section>
+<section class="future" aria-hidden="true" style="top: 350px; display: none;" inert=""><h3><span style="color:magenta;">Punteros y Tipos Recursivos</span></h3>
+<div class="figure">
+<img src="./Tipos de Datos_files/lisppunt.png" width="auto" height="auto">
+
+</div>
+</section>
+<section class="future" aria-hidden="true" style="top: 350px; display: none;" inert=""><h3><span style="color:brown;">Punteros y Tipos Recursivos</span></h3>
+<div style="font-size: 90%;">
+<center><b>C</b>
+ punteros y arreglos</center>
+<ul><li><code>int *a == int a[]</code>
+</li>
+<li><code>int **a == int *a[]</code>
+</li>
+</ul>
+<center>Las equivalencias no siempre ocurren</center>
+<ul><li>Especificamente, una declaración aloja un arreglo si se especifica un tamaño para la primera dimensión</li>
+<li>En caso contrario aloja un puntero<ul><li><code>int **a, int *a[]</code>
+ puntero a puntero a int</li>
+<li><code>int *a[n]</code>
+ arreglo de <em>n</em>
+ elementos de punteros</li>
+<li><code>int a[n][m]</code>
+ arreglo de dos dimensiones</li>
+</ul>
+</li>
+</ul>
+</div></section>
+<section class="future" aria-hidden="true" style="top: 350px; display: none;" inert=""><h3><span style="color:brown;">Punteros y Tipos Recursivos</span></h3>
+<div style="font-size: 90%;">
+<p>El compilador tiene que ser capaz de establecer el tamaño de las cosas apuntadas por los punteros</p>
+<ul><li>Por lo tanto las siguientes no son válidas:<ul><li><code>int a[][]</code>
+ mal </li>
+<li><code>int (*a)[]</code>
+ mal </li>
+</ul>
+</li>
+<li>Regla de declaración de <b>C</b>
+: lee a la derecha tanto como puede (sujeto a paréntesis), luego a la izquierda, y luego sube de nivel y repite.<ul><li><code>int *a[n]</code>
+ arreglo de <em>n</em>
+ elementos de punteros a enteros</li>
+<li><code>int (*a)[n]</code>
+ puntero a un arreglo de <em>n</em>
+ elementos de enteros</li>
+</ul>
+</li>
+</ul>
+</div></section>
+<section class="future" aria-hidden="true" style="top: 350px; display: none;" inert=""><h3><span style="color:brown;">Punteros y Tipos Recursivos</span></h3>
+<p>Los problemas con punteros <em>colgados</em>
+ se deben a:</p>
+<ul><li>desalojo explícito de objetos del <em>heap</em>
+<center>(solo en lenguajes que tienen desalojo explícito)</center>
+</li>
+<li>desalojo implícito de objetos elaborados</li>
+</ul>
+<p>Dos mecanismos de implementación para atrapar punteros <em>colgados</em>
+</p>
+<ul><li><em>Tombstones</em>
+ lápidas</li>
+<li><em>Locks and Keys</em>
+ llaves y cerraduras</li>
+</ul>
+</section>
+</section>
+<section style="top: 350px; display: none;" inert="" hidden="" aria-hidden="true" class="future"><h3><span style="color:yellow;">Listas</span></h3>
+<p>Una <em>Lista</em>
+ es definida recursivamente ya sea como una lista vacía o un par consistente de un objeto (que puede ser una lista o un átomo) y otra lista (mas corta)</p>
+<ul><li>Las <em>Listas</em>
+ son ideales para programar en lenguajes lógicos y funcionales<center>En <b>Lisp</b>
+ de hecho un programa<em>es</em>
+ una lista, y puede extenderse a si mismo para contruir una lista y ejecutarla</center>
+</li>
+<li>Las <em>Listas</em>
+ pueden usarse en programas imperativos.</li>
+</ul>
+</section>
+<section style="top: 350px; display: none;" inert="" hidden="" aria-hidden="true" class="future"><h3><span style="color:yellow;">Archivos y Entrada/Salida</span></h3>
+<div style="font-size: 90%;">
+<ul><li>Entrada/Salida (E/S) facilita al programa a comunicarse con el mundo externo<center>E/S interactiva y E/S con archivos</center>
+</li>
+<li>Interactivo generalmente implica comunicación con usuarios humanos ydispositivos físicos</li>
+<li>Archivos generalmente se refieren a almacenamiento fuera de linea implementado por el sistema operativo.</li>
+<li>Archivos pueden ser categorizados en:<ul><li>Temporarios</li>
+<li>Persistentes</li>
+</ul>
+</li>
+</ul>
+</div></section>
+</div>
+<div class="backgrounds"><div class="slide-background present" data-loaded="true" style="display: block;"><div class="slide-background-content"></div></div><div class="slide-background future" data-loaded="true" style="display: block;"><div class="slide-background-content"></div></div><div class="slide-background future" data-loaded="true" style="display: block;"><div class="slide-background-content"></div></div><div class="slide-background future" style="display: none;"><div class="slide-background-content"></div></div><div class="slide-background stack future" style="display: none;"><div class="slide-background-content"></div><div class="slide-background present" style="display: none;"><div class="slide-background-content"></div></div><div class="slide-background future" style="display: none;"><div class="slide-background-content"></div></div></div><div class="slide-background future" style="display: none;"><div class="slide-background-content"></div></div><div class="slide-background future" style="display: none;"><div class="slide-background-content"></div></div><div class="slide-background future" style="display: none;"><div class="slide-background-content"></div></div><div class="slide-background future" style="display: none;"><div class="slide-background-content"></div></div><div class="slide-background future" style="display: none;"><div class="slide-background-content"></div></div><div class="slide-background stack future" style="display: none;"><div class="slide-background-content"></div><div class="slide-background present" style="display: none;"><div class="slide-background-content"></div></div><div class="slide-background future" style="display: none;"><div class="slide-background-content"></div></div><div class="slide-background future" style="display: none;"><div class="slide-background-content"></div></div><div class="slide-background future" style="display: none;"><div class="slide-background-content"></div></div></div><div class="slide-background future" style="display: none;"><div class="slide-background-content"></div></div><div class="slide-background stack future" style="display: none;"><div class="slide-background-content"></div><div class="slide-background present" style="display: none;"><div class="slide-background-content"></div></div><div class="slide-background future" style="display: none;"><div class="slide-background-content"></div></div><div class="slide-background future" style="display: none;"><div class="slide-background-content"></div></div><div class="slide-background future" style="display: none;"><div class="slide-background-content"></div></div><div class="slide-background future" style="display: none;"><div class="slide-background-content"></div></div><div class="slide-background future" style="display: none;"><div class="slide-background-content"></div></div><div class="slide-background future" style="display: none;"><div class="slide-background-content"></div></div><div class="slide-background future" style="display: none;"><div class="slide-background-content"></div></div><div class="slide-background future" style="display: none;"><div class="slide-background-content"></div></div><div class="slide-background future" style="display: none;"><div class="slide-background-content"></div></div><div class="slide-background future" style="display: none;"><div class="slide-background-content"></div></div><div class="slide-background future" style="display: none;"><div class="slide-background-content"></div></div><div class="slide-background future" style="display: none;"><div class="slide-background-content"></div></div><div class="slide-background future" style="display: none;"><div class="slide-background-content"></div></div><div class="slide-background future" style="display: none;"><div class="slide-background-content"></div></div><div class="slide-background future" style="display: none;"><div class="slide-background-content"></div></div><div class="slide-background future" style="display: none;"><div class="slide-background-content"></div></div><div class="slide-background future" style="display: none;"><div class="slide-background-content"></div></div></div><div class="slide-background future" style="display: none;"><div class="slide-background-content"></div></div><div class="slide-background future" style="display: none;"><div class="slide-background-content"></div></div><div class="slide-background stack future" style="display: none;"><div class="slide-background-content"></div><div class="slide-background present" style="display: none;"><div class="slide-background-content"></div></div><div class="slide-background future" style="display: none;"><div class="slide-background-content"></div></div><div class="slide-background future" style="display: none;"><div class="slide-background-content"></div></div><div class="slide-background future" style="display: none;"><div class="slide-background-content"></div></div><div class="slide-background future" style="display: none;"><div class="slide-background-content"></div></div><div class="slide-background future" style="display: none;"><div class="slide-background-content"></div></div><div class="slide-background future" style="display: none;"><div class="slide-background-content"></div></div><div class="slide-background future" style="display: none;"><div class="slide-background-content"></div></div><div class="slide-background future" style="display: none;"><div class="slide-background-content"></div></div></div><div class="slide-background future" style="display: none;"><div class="slide-background-content"></div></div><div class="slide-background stack future" style="display: none;"><div class="slide-background-content"></div><div class="slide-background present" style="display: none;"><div class="slide-background-content"></div></div><div class="slide-background future" style="display: none;"><div class="slide-background-content"></div></div><div class="slide-background future" style="display: none;"><div class="slide-background-content"></div></div><div class="slide-background future" style="display: none;"><div class="slide-background-content"></div></div><div class="slide-background future" style="display: none;"><div class="slide-background-content"></div></div></div><div class="slide-background future" style="display: none;"><div class="slide-background-content"></div></div><div class="slide-background future" style="display: none;"><div class="slide-background-content"></div></div></div><div class="slide-number" style="display: none;"></div><aside class="controls" data-controls-layout="bottom-right" data-controls-back-arrows="faded" style="display: block;"><button class="navigate-left" aria-label="previous slide" disabled="disabled"><div class="controls-arrow"></div></button>
+			<button class="navigate-right enabled highlight" aria-label="next slide"><div class="controls-arrow"></div></button>
+			<button class="navigate-up" aria-label="above slide" disabled="disabled"><div class="controls-arrow"></div></button>
+			<button class="navigate-down" aria-label="below slide" disabled="disabled"><div class="controls-arrow"></div></button></aside><div class="progress" style="display: block;"><span style="transform: scaleX(0);"></span></div><div class="speaker-notes" data-prevent-swipe="" tabindex="0"></div><div class="pause-overlay"><button class="resume-button">Resume presentation</button></div><div class="aria-status" aria-live="polite" aria-atomic="true" style="position: absolute; height: 1px; width: 1px; overflow: hidden; clip: rect(1px, 1px, 1px, 1px);">Tipos de Datos. C. A. L. P. Claudio Vaucheret. </div></div>
+<script src="./Tipos de Datos_files/reveal.js.descargar"></script>
+<script>Reveal.initialize({      transition: 'slide'});</script>
+
+
+<div style="position: absolute; width: 0px; height: 0px; overflow: hidden; padding: 0px; border: 0px; margin: 0px;"><div id="MathJax_Font_Test" style="position: absolute; visibility: hidden; top: 0px; left: 0px; width: auto; min-width: 0px; max-width: none; padding: 0px; border: 0px; margin: 0px; white-space: nowrap; text-align: left; text-indent: 0px; text-transform: none; line-height: normal; letter-spacing: normal; word-spacing: normal; font-size: 40px; font-weight: normal; font-style: normal; font-size-adjust: none; font-family: MathJax_Math-italic, sans-serif;"></div></div></body></html>

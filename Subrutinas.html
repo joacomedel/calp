@@ -1,0 +1,488 @@
+<!DOCTYPE html>
+<!-- saved from url=(0045)https://vaucheret.github.io/CALP/subrimp.html -->
+<html class="reveal-full-page"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><title>Subrutinas</title>
+<link rel="stylesheet" href="./Subrutinas_files/reveal.css"><link rel="stylesheet" href="./Subrutinas_files/night.css"><link rel="stylesheet" href="./Subrutinas_files/grids.css">
+<!-- If the query includes 'print-pdf', include the PDF print sheet -->
+<script>
+    if( window.location.search.match( /print-pdf/gi ) ) {
+        var link = document.createElement( 'link' );
+        link.rel = 'stylesheet';
+        link.type = 'text/css';
+        link.href = 'https://cdn.jsdelivr.net/npm/reveal.js/css/print/pdf.css';
+        document.getElementsByTagName( 'head' )[0].appendChild( link );
+    }
+</script>
+<script type="text/javascript" src="./Subrutinas_files/MathJax.js.descargar"></script>
+<link rel="stylesheet" href="./Subrutinas_files/default.min.css">
+<script src="./Subrutinas_files/highlight.min.js.descargar"></script>
+<script>hljs.highlightAll();</script>
+<style>    .reveal {      background-image: url('bitmap.png');      background-size: 102%;      background-position: top left;      background-repeat: no-repeat;    }</style><style type="text/css">.MathJax_Hover_Frame {border-radius: .25em; -webkit-border-radius: .25em; -moz-border-radius: .25em; -khtml-border-radius: .25em; box-shadow: 0px 0px 15px #83A; -webkit-box-shadow: 0px 0px 15px #83A; -moz-box-shadow: 0px 0px 15px #83A; -khtml-box-shadow: 0px 0px 15px #83A; border: 1px solid #A6D ! important; display: inline-block; position: absolute}
+.MathJax_Menu_Button .MathJax_Hover_Arrow {position: absolute; cursor: pointer; display: inline-block; border: 2px solid #AAA; border-radius: 4px; -webkit-border-radius: 4px; -moz-border-radius: 4px; -khtml-border-radius: 4px; font-family: 'Courier New',Courier; font-size: 9px; color: #F0F0F0}
+.MathJax_Menu_Button .MathJax_Hover_Arrow span {display: block; background-color: #AAA; border: 1px solid; border-radius: 3px; line-height: 0; padding: 4px}
+.MathJax_Hover_Arrow:hover {color: white!important; border: 2px solid #CCC!important}
+.MathJax_Hover_Arrow:hover span {background-color: #CCC!important}
+</style><style type="text/css">#MathJax_About {position: fixed; left: 50%; width: auto; text-align: center; border: 3px outset; padding: 1em 2em; background-color: #DDDDDD; color: black; cursor: default; font-family: message-box; font-size: 120%; font-style: normal; text-indent: 0; text-transform: none; line-height: normal; letter-spacing: normal; word-spacing: normal; word-wrap: normal; white-space: nowrap; float: none; z-index: 201; border-radius: 15px; -webkit-border-radius: 15px; -moz-border-radius: 15px; -khtml-border-radius: 15px; box-shadow: 0px 10px 20px #808080; -webkit-box-shadow: 0px 10px 20px #808080; -moz-box-shadow: 0px 10px 20px #808080; -khtml-box-shadow: 0px 10px 20px #808080; filter: progid:DXImageTransform.Microsoft.dropshadow(OffX=2, OffY=2, Color='gray', Positive='true')}
+#MathJax_About.MathJax_MousePost {outline: none}
+.MathJax_Menu {position: absolute; background-color: white; color: black; width: auto; padding: 2px; border: 1px solid #CCCCCC; margin: 0; cursor: default; font: menu; text-align: left; text-indent: 0; text-transform: none; line-height: normal; letter-spacing: normal; word-spacing: normal; word-wrap: normal; white-space: nowrap; float: none; z-index: 201; box-shadow: 0px 10px 20px #808080; -webkit-box-shadow: 0px 10px 20px #808080; -moz-box-shadow: 0px 10px 20px #808080; -khtml-box-shadow: 0px 10px 20px #808080; filter: progid:DXImageTransform.Microsoft.dropshadow(OffX=2, OffY=2, Color='gray', Positive='true')}
+.MathJax_MenuItem {padding: 2px 2em; background: transparent}
+.MathJax_MenuArrow {position: absolute; right: .5em; padding-top: .25em; color: #666666; font-size: .75em}
+.MathJax_MenuActive .MathJax_MenuArrow {color: white}
+.MathJax_MenuArrow.RTL {left: .5em; right: auto}
+.MathJax_MenuCheck {position: absolute; left: .7em}
+.MathJax_MenuCheck.RTL {right: .7em; left: auto}
+.MathJax_MenuRadioCheck {position: absolute; left: 1em}
+.MathJax_MenuRadioCheck.RTL {right: 1em; left: auto}
+.MathJax_MenuLabel {padding: 2px 2em 4px 1.33em; font-style: italic}
+.MathJax_MenuRule {border-top: 1px solid #CCCCCC; margin: 4px 1px 0px}
+.MathJax_MenuDisabled {color: GrayText}
+.MathJax_MenuActive {background-color: Highlight; color: HighlightText}
+.MathJax_MenuDisabled:focus, .MathJax_MenuLabel:focus {background-color: #E8E8E8}
+.MathJax_ContextMenu:focus {outline: none}
+.MathJax_ContextMenu .MathJax_MenuItem:focus {outline: none}
+#MathJax_AboutClose {top: .2em; right: .2em}
+.MathJax_Menu .MathJax_MenuClose {top: -10px; left: -10px}
+.MathJax_MenuClose {position: absolute; cursor: pointer; display: inline-block; border: 2px solid #AAA; border-radius: 18px; -webkit-border-radius: 18px; -moz-border-radius: 18px; -khtml-border-radius: 18px; font-family: 'Courier New',Courier; font-size: 24px; color: #F0F0F0}
+.MathJax_MenuClose span {display: block; background-color: #AAA; border: 1.5px solid; border-radius: 18px; -webkit-border-radius: 18px; -moz-border-radius: 18px; -khtml-border-radius: 18px; line-height: 0; padding: 8px 0 6px}
+.MathJax_MenuClose:hover {color: white!important; border: 2px solid #CCC!important}
+.MathJax_MenuClose:hover span {background-color: #CCC!important}
+.MathJax_MenuClose:hover:focus {outline: none}
+</style><style type="text/css">.MathJax_Preview .MJXf-math {color: inherit!important}
+</style><style type="text/css">.MJX_Assistive_MathML {position: absolute!important; top: 0; left: 0; clip: rect(1px, 1px, 1px, 1px); padding: 1px 0 0 0!important; border: 0!important; height: 1px!important; width: 1px!important; overflow: hidden!important; display: block!important; -webkit-touch-callout: none; -webkit-user-select: none; -khtml-user-select: none; -moz-user-select: none; -ms-user-select: none; user-select: none}
+.MJX_Assistive_MathML.MJX_Assistive_MathML_Block {width: 100%!important}
+</style><style type="text/css">#MathJax_Zoom {position: absolute; background-color: #F0F0F0; overflow: auto; display: block; z-index: 301; padding: .5em; border: 1px solid black; margin: 0; font-weight: normal; font-style: normal; text-align: left; text-indent: 0; text-transform: none; line-height: normal; letter-spacing: normal; word-spacing: normal; word-wrap: normal; white-space: nowrap; float: none; -webkit-box-sizing: content-box; -moz-box-sizing: content-box; box-sizing: content-box; box-shadow: 5px 5px 15px #AAAAAA; -webkit-box-shadow: 5px 5px 15px #AAAAAA; -moz-box-shadow: 5px 5px 15px #AAAAAA; -khtml-box-shadow: 5px 5px 15px #AAAAAA; filter: progid:DXImageTransform.Microsoft.dropshadow(OffX=2, OffY=2, Color='gray', Positive='true')}
+#MathJax_ZoomOverlay {position: absolute; left: 0; top: 0; z-index: 300; display: inline-block; width: 100%; height: 100%; border: 0; padding: 0; margin: 0; background-color: white; opacity: 0; filter: alpha(opacity=0)}
+#MathJax_ZoomFrame {position: relative; display: inline-block; height: 0; width: 0}
+#MathJax_ZoomEventTrap {position: absolute; left: 0; top: 0; z-index: 302; display: inline-block; border: 0; padding: 0; margin: 0; background-color: white; opacity: 0; filter: alpha(opacity=0)}
+</style><style type="text/css">.MathJax_Preview {color: #888}
+#MathJax_Message {position: fixed; left: 1em; bottom: 1.5em; background-color: #E6E6E6; border: 1px solid #959595; margin: 0px; padding: 2px 8px; z-index: 102; color: black; font-size: 80%; width: auto; white-space: nowrap}
+#MathJax_MSIE_Frame {position: absolute; top: 0; left: 0; width: 0px; z-index: 101; border: 0px; margin: 0px; padding: 0px}
+.MathJax_Error {color: #CC0000; font-style: italic}
+</style><style type="text/css">.MJXp-script {font-size: .8em}
+.MJXp-right {-webkit-transform-origin: right; -moz-transform-origin: right; -ms-transform-origin: right; -o-transform-origin: right; transform-origin: right}
+.MJXp-bold {font-weight: bold}
+.MJXp-italic {font-style: italic}
+.MJXp-scr {font-family: MathJax_Script,'Times New Roman',Times,STIXGeneral,serif}
+.MJXp-frak {font-family: MathJax_Fraktur,'Times New Roman',Times,STIXGeneral,serif}
+.MJXp-sf {font-family: MathJax_SansSerif,'Times New Roman',Times,STIXGeneral,serif}
+.MJXp-cal {font-family: MathJax_Caligraphic,'Times New Roman',Times,STIXGeneral,serif}
+.MJXp-mono {font-family: MathJax_Typewriter,'Times New Roman',Times,STIXGeneral,serif}
+.MJXp-largeop {font-size: 150%}
+.MJXp-largeop.MJXp-int {vertical-align: -.2em}
+.MJXp-math {display: inline-block; line-height: 1.2; text-indent: 0; font-family: 'Times New Roman',Times,STIXGeneral,serif; white-space: nowrap; border-collapse: collapse}
+.MJXp-display {display: block; text-align: center; margin: 1em 0}
+.MJXp-math span {display: inline-block}
+.MJXp-box {display: block!important; text-align: center}
+.MJXp-box:after {content: " "}
+.MJXp-rule {display: block!important; margin-top: .1em}
+.MJXp-char {display: block!important}
+.MJXp-mo {margin: 0 .15em}
+.MJXp-mfrac {margin: 0 .125em; vertical-align: .25em}
+.MJXp-denom {display: inline-table!important; width: 100%}
+.MJXp-denom > * {display: table-row!important}
+.MJXp-surd {vertical-align: top}
+.MJXp-surd > * {display: block!important}
+.MJXp-script-box > *  {display: table!important; height: 50%}
+.MJXp-script-box > * > * {display: table-cell!important; vertical-align: top}
+.MJXp-script-box > *:last-child > * {vertical-align: bottom}
+.MJXp-script-box > * > * > * {display: block!important}
+.MJXp-mphantom {visibility: hidden}
+.MJXp-munderover, .MJXp-munder {display: inline-table!important}
+.MJXp-over {display: inline-block!important; text-align: center}
+.MJXp-over > * {display: block!important}
+.MJXp-munderover > *, .MJXp-munder > * {display: table-row!important}
+.MJXp-mtable {vertical-align: .25em; margin: 0 .125em}
+.MJXp-mtable > * {display: inline-table!important; vertical-align: middle}
+.MJXp-mtr {display: table-row!important}
+.MJXp-mtd {display: table-cell!important; text-align: center; padding: .5em 0 0 .5em}
+.MJXp-mtr > .MJXp-mtd:first-child {padding-left: 0}
+.MJXp-mtr:first-child > .MJXp-mtd {padding-top: 0}
+.MJXp-mlabeledtr {display: table-row!important}
+.MJXp-mlabeledtr > .MJXp-mtd:first-child {padding-left: 0}
+.MJXp-mlabeledtr:first-child > .MJXp-mtd {padding-top: 0}
+.MJXp-merror {background-color: #FFFF88; color: #CC0000; border: 1px solid #CC0000; padding: 1px 3px; font-style: normal; font-size: 90%}
+.MJXp-scale0 {-webkit-transform: scaleX(.0); -moz-transform: scaleX(.0); -ms-transform: scaleX(.0); -o-transform: scaleX(.0); transform: scaleX(.0)}
+.MJXp-scale1 {-webkit-transform: scaleX(.1); -moz-transform: scaleX(.1); -ms-transform: scaleX(.1); -o-transform: scaleX(.1); transform: scaleX(.1)}
+.MJXp-scale2 {-webkit-transform: scaleX(.2); -moz-transform: scaleX(.2); -ms-transform: scaleX(.2); -o-transform: scaleX(.2); transform: scaleX(.2)}
+.MJXp-scale3 {-webkit-transform: scaleX(.3); -moz-transform: scaleX(.3); -ms-transform: scaleX(.3); -o-transform: scaleX(.3); transform: scaleX(.3)}
+.MJXp-scale4 {-webkit-transform: scaleX(.4); -moz-transform: scaleX(.4); -ms-transform: scaleX(.4); -o-transform: scaleX(.4); transform: scaleX(.4)}
+.MJXp-scale5 {-webkit-transform: scaleX(.5); -moz-transform: scaleX(.5); -ms-transform: scaleX(.5); -o-transform: scaleX(.5); transform: scaleX(.5)}
+.MJXp-scale6 {-webkit-transform: scaleX(.6); -moz-transform: scaleX(.6); -ms-transform: scaleX(.6); -o-transform: scaleX(.6); transform: scaleX(.6)}
+.MJXp-scale7 {-webkit-transform: scaleX(.7); -moz-transform: scaleX(.7); -ms-transform: scaleX(.7); -o-transform: scaleX(.7); transform: scaleX(.7)}
+.MJXp-scale8 {-webkit-transform: scaleX(.8); -moz-transform: scaleX(.8); -ms-transform: scaleX(.8); -o-transform: scaleX(.8); transform: scaleX(.8)}
+.MJXp-scale9 {-webkit-transform: scaleX(.9); -moz-transform: scaleX(.9); -ms-transform: scaleX(.9); -o-transform: scaleX(.9); transform: scaleX(.9)}
+.MathJax_PHTML .noError {vertical-align: ; font-size: 90%; text-align: left; color: black; padding: 1px 3px; border: 1px solid}
+</style></head>
+<body class="reveal-viewport" style="--slide-width: 960px; --slide-height: 700px; --slide-scale: 1.25; --viewport-width: 1912px; --viewport-height: 914px;"><div id="MathJax_Message" style="display: none;"></div><div class="reveal slide center focused has-horizontal-slides ready" role="application" data-transition-speed="default" data-background-transition="fade" style=""><div class="slides" style="width: 960px; height: 700px; inset: 50% auto auto 50%; transform: translate(-50%, -50%) scale(1.25);"><section id="sec-title-slide" style="top: 151.5px; display: block;" class="present"><h1 class="title">Subrutinas</h1>
+<h2 class="author">C. A. L. P.</h2>
+<h3 class="date">Claudio Vaucheret</h3>
+</section>
+<section data-auto-animate="" style="top: 238.5px; display: block;" inert="" hidden="" aria-hidden="true" class="future"><h2>Semántica General de Llamada y Retorno</h2>
+<div class="outline-text-2"></div>
+</section>
+<section data-auto-animate="" style="top: 238.5px; display: block;" inert="" hidden="" aria-hidden="true" class="future"><h2><em><span style="color:red;">Semántica General de Llamada y Retorno</span></em>
+</h2>
+<div class="outline-text-2"></div>
+</section>
+<section style="top: 350px; display: none;" inert="" hidden="" aria-hidden="true" class="future"><h3><span style="color:red;">Semántica General de Llamada y Retorno</span></h3>
+<div style="font-size: 85%;">
+<ul><li class="fragment highlight-current-red" data-fragment-index="0">Semánticamente es como si el subprograma se insertara en el punto de su llamada (no es siempre asi)</li>
+<li class="fragment highlight-current-red" data-fragment-index="1">En un lenguaje de Programación, las operaciones de llamado y retorno de subprogramas son llamadas en conjunto <em>articulación de subprogramas</em>
+</li>
+<li class="fragment highlight-current-red" data-fragment-index="2">La llamada a un subprograma tiene varias acciones asociadas con:<ul><li class="fragment highlight-current-red" data-fragment-index="3">El método de pasaje de parámetros</li>
+<li class="fragment highlight-current-red" data-fragment-index="4">variables locales estáticas</li>
+<li class="fragment highlight-current-red" data-fragment-index="5">Estado de ejecución del programa llamador</li>
+<li class="fragment highlight-current-red" data-fragment-index="6">transferencia del control</li>
+<li class="fragment highlight-current-red" data-fragment-index="7">Estructura de anidamiento de los subprogramas</li>
+</ul>
+</li>
+</ul>
+</div></section>
+<section data-auto-animate="" style="top: 350px; display: none;" inert="" hidden="" aria-hidden="true" class="future"><h2>Subprogramas Simples</h2>
+<div class="outline-text-2"></div>
+</section>
+<section data-auto-animate="" style="top: 350px; display: none;" inert="" hidden="" aria-hidden="true" class="future"><h2><em><span style="color:green;">Subprogramas Simples</span></em>
+</h2>
+<div class="outline-text-2"></div>
+</section>
+<section style="top: 350px; display: none;" inert="" hidden="" aria-hidden="true" class="future"><h3><span style="color:green;">Subprogramas Simples: LLamada</span></h3>
+<ul><li class="fragment highlight-current-green" data-fragment-index="0">Grabar el estado de ejecución del llamador</li>
+<li class="fragment highlight-current-green" data-fragment-index="1">llevar a cabo el proceso de pasaje de parámetros</li>
+<li class="fragment highlight-current-green" data-fragment-index="2">Pasar la dirección de retorno al subprograma llamado</li>
+<li class="fragment highlight-current-green" data-fragment-index="3">Transferir el control al programa llamado</li>
+</ul>
+</section>
+<section style="top: 350px; display: none;" inert="" hidden="" aria-hidden="true" class="future"><h3><span style="color:green;">Subprogramas Simples: Retorno</span></h3>
+<ul><li class="fragment highlight-current-green" data-fragment-index="0">Si se usó pasaje de parametros por valor-resultado, mover los valores actuales a esos parametors a sus correspondientes parametros reales</li>
+<li class="fragment highlight-current-green" data-fragment-index="1">Si es una función, mover el resultado al lugar donde el llamador pueda obtenerlo</li>
+<li class="fragment highlight-current-green" data-fragment-index="2">Restaurar el estado de ejecución del llamador</li>
+<li class="fragment highlight-current-green" data-fragment-index="3">Retornar el control al llamador</li>
+</ul>
+</section>
+<section style="top: 350px; display: none;" inert="" hidden="" aria-hidden="true" class="future"><h3><span style="color:green;">Subprogramas Simples: Partes</span></h3>
+<ul><li class="fragment highlight-current-green" data-fragment-index="0">Dos partes separadas: El Código y los Datos (variables locales y datos que pueden cambiar)</li>
+<li class="fragment highlight-current-green" data-fragment-index="1">El formato de la parte de datos de un subprograma en ejecución se llama <em>registro de activación</em>
+</li>
+<li class="fragment highlight-current-green" data-fragment-index="2">Una <em>instancia de un registro de activación</em>
+ es un ejemplo concreto de un registro de activación.</li>
+</ul>
+</section>
+<section style="top: 350px; display: none;" inert="" hidden="" aria-hidden="true" class="future"><h3><span style="color:green;">Código y Registros de Activación</span></h3>
+<div style="font-size: 85%;">
+<div class="figure">
+<img src="./Subrutinas_files/simpleactreg.png" width="auto" height="500">
+
+</div>
+</div></section>
+<section data-auto-animate="" style="top: 350px; display: none;" inert="" hidden="" aria-hidden="true" class="future"><h2>Subprogramas con Variables locales en Pila Dinámica</h2>
+<div class="outline-text-2"></div>
+</section>
+<section data-auto-animate="" style="top: 350px; display: none;" inert="" hidden="" aria-hidden="true" class="future"><h2><em><span style="color:blue;">Subprogramas con Variables locales en Pila Dinámica</span></em>
+</h2>
+<div class="outline-text-2"></div>
+</section>
+<section style="top: 350px; display: none;" inert="" hidden="" aria-hidden="true" class="future"><h3><span style="color:blue;">Subprogramas con Variables locales en Pila Dinámica</span></h3>
+<p>Registros de activación mas complejos</p>
+<ul><li class="fragment highlight-current-blue" data-fragment-index="0">El compilador debe generar código para alojar y desalojar implícitamente las variables locales</li>
+<li class="fragment highlight-current-blue" data-fragment-index="1">Se debe soportar recursividad  (posibilidad de múltiples  simultáneas de un subprograma)</li>
+</ul>
+<p>El formato y muchas veces el tamaño es conocido en tiempo de compilación</p>
+</section>
+<section style="top: 350px; display: none;" inert="" hidden="" aria-hidden="true" class="future"><h3><span style="color:blue;">Típico registro de activación para variables locales alojadas en pila dinamica</span></h3>
+<div class="figure">
+<img src="./Subrutinas_files/regactpila.png" width="auto" height="auto">
+
+</div>
+</section>
+<section style="top: 350px; display: none;" inert="" hidden="" aria-hidden="true" class="future"><h3><span style="color:blue;">Ejemplo de Función en <b>C</b>
+</span></h3>
+<div style="font-size: 90%;">
+<pre><code data-highlighted="yes" class="hljs language-perl">
+void <span class="hljs-function"><span class="hljs-keyword">sub</span>(<span class="hljs-title">float</span> <span class="hljs-title">total</span>, <span class="hljs-title">int</span> <span class="hljs-title">part</span>) </span>{
+  <span class="hljs-keyword">int</span> list[<span class="hljs-number">5</span>];
+  float sum;
+   ...
+}
+</code></pre>
+<div class="figure">
+<img src="./Subrutinas_files/ejemregact.png" width="auto" height="380">
+
+</div>
+</div></section>
+<section style="top: 350px; display: none;" inert="" hidden="" aria-hidden="true" class="future"><h3><span style="color:blue;">Ejemplo sin recursividad</span></h3>
+<pre><code data-highlighted="yes" class="hljs language-csharp">
+<span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">fun1</span>(<span class="hljs-params"><span class="hljs-built_in">float</span> r</span>)</span> {
+  <span class="hljs-built_in">int</span> s, t;
+   ...  &lt;-------- <span class="hljs-number">1</span>
+  fun2(s);
+  ....
+}
+<span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">fun2</span>(<span class="hljs-params"><span class="hljs-built_in">int</span> x</span>)</span> {
+  <span class="hljs-built_in">int</span> y;
+  ... &lt;---------- <span class="hljs-number">2</span>
+  fun3(y)
+  ... 
+}
+<span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">fun3</span>(<span class="hljs-params"><span class="hljs-built_in">int</span> q</span>)</span> {
+...    &lt;--------- <span class="hljs-number">3</span>
+}
+<span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">main</span>()</span> {
+<span class="hljs-built_in">float</span> p;
+...
+fun1(p);
+...
+}
+</code></pre>
+<p>main llama a fun1, fun1 llama a fun2 y fun2 llama a fun3</p>
+</section>
+<section style="top: 350px; display: none;" inert="" hidden="" aria-hidden="true" class="future"><h3><span style="color:blue;">Ejemplo sin recursividad</span></h3>
+<div class="figure">
+<img src="./Subrutinas_files/ejemsinrec.png" width="auto" height="auto">
+
+</div>
+</section>
+<section style="top: 350px; display: none;" inert="" hidden="" aria-hidden="true" class="future"><h3><span style="color:blue;">Cadena Dinámica y desplazamiento local</span></h3>
+<ul><li class="fragment highlight-current-blue" data-fragment-index="0">el conjunto  de ligaduras dinámicas y la Pila en un tiempo dada se llama <em>cadena dinámica</em>
+ o <em>cadena de llamadas</em>
+</li>
+<li class="fragment highlight-current-blue" data-fragment-index="1">Las variables locales se pueden acceder a partir de su desplazamiento desde el comienzo del registro de activación. Se  llama <em>desplazamiento local</em>
+</li>
+<li class="fragment highlight-current-blue" data-fragment-index="2">El desplazamiento local puede ser determinado en tiempo de compilación.</li>
+</ul>
+</section>
+<section style="top: 350px; display: none;" inert="" hidden="" aria-hidden="true" class="future"><h3><span style="color:blue;">Un Ejemplo con Recursividad</span></h3>
+<p>El registro de activación del ejemplo previo soporta recursividad, e.g.</p>
+<pre><code data-highlighted="yes" class="hljs language-csharp">
+<span class="hljs-function"><span class="hljs-built_in">int</span> <span class="hljs-title">factorial</span>(<span class="hljs-params"><span class="hljs-built_in">int</span> n</span>)</span> {
+  &lt;-------  <span class="hljs-number">1</span>
+  <span class="hljs-keyword">if</span> (n &lt;= <span class="hljs-number">1</span>)
+   <span class="hljs-keyword">return</span> <span class="hljs-number">1</span>;
+  <span class="hljs-keyword">else</span> <span class="hljs-keyword">return</span> (n * factorial(n - <span class="hljs-number">1</span>));
+  &lt;-------- <span class="hljs-number">2</span>
+}
+<span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">main</span>()</span> {
+ <span class="hljs-built_in">int</span> <span class="hljs-keyword">value</span>;
+ <span class="hljs-keyword">value</span> = factorial(<span class="hljs-number">3</span>);
+  &lt;--------- <span class="hljs-number">3</span>
+}
+</code></pre>
+</section>
+<section style="top: 350px; display: none;" inert="" hidden="" aria-hidden="true" class="future"><h3><span style="color:blue;">Un Ejemplo con Recursividad</span></h3>
+<div style="font-size: 90%;">
+<div class="figure">
+<img src="./Subrutinas_files/firstfactorial.png" width="auto" height="550">
+
+</div>
+</div></section>
+<section style="top: 350px; display: none;" inert="" hidden="" aria-hidden="true" class="future"><h3><span style="color:blue;">Un Ejemplo con Recursividad</span></h3>
+<div style="font-size: 90%;">
+<div class="figure">
+<img src="./Subrutinas_files/seconfactorial.png" width="auto" height="auto">
+
+</div>
+</div></section>
+<section style="top: 350px; display: none;" inert="" hidden="" aria-hidden="true" class="future"><h3><span style="color:blue;">Un Ejemplo con Recursividad</span></h3>
+<div style="font-size: 90%;">
+<div class="figure">
+<img src="./Subrutinas_files/thirdfactorial.png" width="auto" height="auto">
+
+</div>
+</div></section>
+<section data-auto-animate="" style="top: 350px; display: none;" inert="" hidden="" aria-hidden="true" class="future"><h2>Subprogramas imbricados</h2>
+<div class="outline-text-2"></div>
+</section>
+<section data-auto-animate="" style="top: 350px; display: none;" inert="" hidden="" aria-hidden="true" class="future"><h2><em><span style="color:pink;">Subprogramas imbricados</span></em>
+</h2>
+<div class="outline-text-2"></div>
+</section>
+<section style="top: 350px; display: none;" inert="" hidden="" aria-hidden="true" class="future"><h3><span style="color:pink;">Subprogramas imbricados</span></h3>
+<div style="font-size: 90%;">
+<ul><li class="fragment fade-in-then-semi-out" data-fragment-index="0">Algunos lenguajes de alcance estático no basados en C (fortran 95, Ada, JavaScript) usan variables locales alojadas en Pila Dinámicas y permiten que los subprogramas estén imbricados</li>
+<li class="fragment fade-in-then-semi-out" data-fragment-index="1">Todas las variables que pueden ser accedidas no localmente residen en alguna instancia de un registro de activación en la Pila</li>
+<li class="fragment fade-in-then-semi-out" data-fragment-index="2">El proceso de localizar una referencia no local incluye:<ol><li class="fragment fade-in-then-semi-out" data-fragment-index="3">Encontrar la instancia del registro de activación correcta</li>
+<li class="fragment fade-in-then-semi-out" data-fragment-index="4">Determinar el correcto desplazamiento dentro del registro</li>
+</ol>
+</li>
+</ul>
+</div></section>
+<section style="top: 350px; display: none;" inert="" hidden="" aria-hidden="true" class="future"><h3><span style="color:pink;">Localizar una Referencia no local</span></h3>
+<p>Encontrar el desplazamiento es trivial</p>
+<p>Para encontrar la correcta instancia del registro de activación</p>
+<p>Las reglas semánticas del alcance estático garantizan que toda variable no local que pueda ser referenciada ha sido alojada en alguna instancia de un registro de activación en la Pila cuando la referencia es hecha.</p>
+</section>
+<section style="top: 350px; display: none;" inert="" hidden="" aria-hidden="true" class="future"><h3><span style="color:pink;">Alcance Estático</span></h3>
+<ul><li class="fragment fade-in-then-semi-out" data-fragment-index="0">Una <em>cadena estática</em>
+ es una cadena de <em>punteros estáticos</em>
+ que conectan ciertas instancias de registros de activación</li>
+<li class="fragment fade-in-then-semi-out" data-fragment-index="1">El puntero estático en una instancia de un registro de activación para un subprograma A apunta a una de las instancias del registro de activación del padre de A en la estructura estática.</li>
+<li class="fragment fade-in-then-semi-out" data-fragment-index="2"> La cadena estática de una istancia de un registro de activación la conecta con todos sus ancestros en la estructura estática.</li>
+</ul>
+</section>
+<section style="top: 350px; display: none;" inert="" hidden="" aria-hidden="true" class="future"><h3><span style="color:pink;">Ejemplo</span></h3>
+<pre><code data-highlighted="yes" class="hljs language-sql">
+<span class="hljs-keyword">procedure</span> MAIN_2 <span class="hljs-keyword">is</span>
+  X : <span class="hljs-type">Integer</span>;
+  <span class="hljs-keyword">procedure</span> Bigsub <span class="hljs-keyword">is</span>
+    A, B, C : <span class="hljs-type">Integer</span>;
+    <span class="hljs-keyword">procedure</span> Sub1 <span class="hljs-keyword">is</span>
+      A, D : <span class="hljs-type">Integer</span>;
+      <span class="hljs-keyword">begin</span> <span class="hljs-operator">-</span> <span class="hljs-operator">-</span> <span class="hljs-keyword">of</span> Sub1
+      A :<span class="hljs-operator">=</span> B <span class="hljs-operator">+</span> C; <span class="hljs-operator">&lt;</span><span class="hljs-comment">---------- 1</span>
+    <span class="hljs-keyword">end</span>; <span class="hljs-operator">-</span> <span class="hljs-operator">-</span> <span class="hljs-keyword">of</span> Sub1
+    <span class="hljs-keyword">procedure</span> Sub2(X : <span class="hljs-type">Integer</span>) <span class="hljs-keyword">is</span>
+      B, E : <span class="hljs-type">Integer</span>;
+      <span class="hljs-keyword">procedure</span> Sub3 <span class="hljs-keyword">is</span>
+         C, E: <span class="hljs-type">Integer</span>;
+         <span class="hljs-keyword">begin</span>  <span class="hljs-comment">-- of Sub3</span>
+         sub1;
+         E :<span class="hljs-operator">=</span> B <span class="hljs-operator">+</span> A; <span class="hljs-operator">&lt;</span><span class="hljs-comment">--------- 2</span>
+      <span class="hljs-keyword">end</span>; <span class="hljs-comment">-- of Sub3</span>
+      <span class="hljs-keyword">begin</span>   <span class="hljs-comment">-- of Sub2</span>
+      sub3;
+      A :<span class="hljs-operator">=</span> D <span class="hljs-operator">+</span> E; <span class="hljs-operator">&lt;</span><span class="hljs-comment">-------------3 </span>
+    <span class="hljs-keyword">end</span>  <span class="hljs-comment">-- of Sub2</span>
+    <span class="hljs-keyword">begin</span> <span class="hljs-comment">-- of Bigsub</span>
+    sub2(<span class="hljs-number">7</span>);
+  <span class="hljs-keyword">end</span> <span class="hljs-comment">-- of Bigsub</span>
+  <span class="hljs-keyword">begin</span> <span class="hljs-comment">-- of Main_2</span>
+  Bigsub;
+<span class="hljs-keyword">end</span> <span class="hljs-comment">-- of Main_2</span>
+</code></pre>
+</section>
+<section style="top: 350px; display: none;" inert="" hidden="" aria-hidden="true" class="future"><h3><span style="color:pink;">Contenido de la Pila en pos 1</span></h3>
+<div class="figure">
+<img src="./Subrutinas_files/ejemploestatico.png" width="auto" height="580">
+
+</div>
+</section>
+<section style="top: 350px; display: none;" inert="" hidden="" aria-hidden="true" class="future"><h3><span style="color:pink;">Display</span></h3>
+<ul><li>Una alternativa a las cadenas estáticas</li>
+<li>Los punteros estáticos son almacenados en un arreglo único llamado display</li>
+<li>El contenido del display en un tiempo dado es una lista de las direcciones de las instancias de los registros de activación accesibles</li>
+</ul>
+</section>
+<section data-auto-animate="" style="top: 350px; display: none;" inert="" hidden="" aria-hidden="true" class="future"><h2>Bloques</h2>
+<div class="outline-text-2"></div>
+</section>
+<section data-auto-animate="" style="top: 350px; display: none;" inert="" hidden="" aria-hidden="true" class="future"><h2><em><span style="color:orange;">Bloques</span></em>
+</h2>
+<div class="outline-text-2"></div>
+</section>
+<section style="top: 350px; display: none;" inert="" hidden="" aria-hidden="true" class="future"><h3><span style="color:orange;">Bloques</span></h3>
+<div style="font-size: 90%;">
+<ul><li class="fragment fade-in-then-semi-out" data-fragment-index="0">Los bloques son alcances locales para variables especificados por el usuario</li>
+<li class="fragment fade-in-then-semi-out" data-fragment-index="1">Un ejemplo en C <pre><code data-highlighted="yes" class="hljs language-lua">
+{ int temp; 
+  temp = list[<span class="hljs-built_in">upper</span>];
+  list[<span class="hljs-built_in">upper</span>] = list [<span class="hljs-built_in">lower</span>];
+  list[<span class="hljs-built_in">lower</span>] = temp
+}
+</code></pre>
+</li>
+<li class="fragment fade-in-then-semi-out" data-fragment-index="2">El tiempo de vida de <em>temp</em>
+ en el ejemplo comienza cuando el control  entra en el bloque</li>
+<li class="fragment fade-in-then-semi-out" data-fragment-index="3">La ventaja de usar una variable local como <em>temp</em>
+ es que no interfiere con otra variable del mismo nombre</li>
+</ul>
+</div></section>
+<section style="top: 350px; display: none;" inert="" hidden="" aria-hidden="true" class="future"><h3><span style="color:orange;">Implementando bloques</span></h3>
+<div style="font-size: 85%;">
+<p>Dos métodos</p>
+<ol><li>Tratar a los bloques como subprogramas sin parámetros que son siempre llamados desde la misma ubicación<p>Todo bloque tiene un registro de activación, una instancia es creada cada vez que el bloque es ejecutado</p>
+</li>
+<li>Ya que el máximo de almacenamiento requerido para un bloque puede ser determinado estáticamente, esta cantidad de espacio puede ser alojada después de las variables locales del registro de activación</li>
+</ol>
+</div></section>
+<section style="top: 350px; display: none;" inert="" hidden="" aria-hidden="true" class="future"><h3><span style="color:orange;">Ejemplo</span></h3>
+<pre><code data-highlighted="yes" class="hljs language-csharp">
+<span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">main</span>()</span> {
+   <span class="hljs-built_in">int</span> x, y, z;
+   <span class="hljs-keyword">while</span> ( ... ) {
+     <span class="hljs-built_in">int</span> a, b, c;
+     ...
+     <span class="hljs-keyword">while</span> ( ... ) {
+       <span class="hljs-built_in">int</span> d, e;
+       ...
+     }
+   }
+   <span class="hljs-keyword">while</span> ( ... ) {
+      <span class="hljs-built_in">int</span> f, g;
+      ...
+   }
+}
+</code></pre>
+</section>
+<section style="top: 350px; display: none;" inert="" hidden="" aria-hidden="true" class="future"><h3><span style="color:orange;">Ejemplo</span></h3>
+<div class="figure">
+<img src="./Subrutinas_files/bloque.png" width="auto" height="auto">
+
+</div>
+</section>
+<section data-auto-animate="" style="top: 350px; display: none;" inert="" hidden="" aria-hidden="true" class="future"><h2>Implementando Alcance Dinámico</h2>
+<div class="outline-text-2"></div>
+</section>
+<section data-auto-animate="" style="top: 350px; display: none;" inert="" hidden="" aria-hidden="true" class="future"><h2><em><span style="color:yellow;">Implementando Alcance Dinámico</span></em>
+</h2>
+<div class="outline-text-2"></div>
+</section>
+<section style="top: 350px; display: none;" inert="" hidden="" aria-hidden="true" class="future"><h3><span style="color:yellow;">Implementando Alcance Dinámico</span></h3>
+<ul><li><span style="color:yellow;"><em>Acceso Profundo:</em>
+</span> Las referencias no locales son encontradas buscando las instancias de los registros de activación en la cadena dinámica</li>
+<li><span style="color:yellow;"><em>Acceso Superficial:</em>
+</span> Se colocan las variables locales en una tabla central<ul><li>Una pila por cada nombre de variable</li>
+<li>Tabla central con una entrada por cada nombre de variable</li>
+</ul>
+</li>
+</ul>
+</section>
+<section style="top: 350px; display: none;" inert="" hidden="" aria-hidden="true" class="future"><h3><span style="color:yellow;">Ejemplo</span></h3>
+<pre><code data-highlighted="yes" class="hljs language-csharp">
+<span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">sub3</span>()</span> {
+  <span class="hljs-built_in">int</span> x, z;
+  x = u + v;
+}
+
+<span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">sub2</span>()</span> {
+  <span class="hljs-built_in">int</span> w, x;
+  ... 
+}
+
+<span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">sub1</span>()</span> {
+  <span class="hljs-built_in">int</span> v, w;
+  ... 
+}
+
+<span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">main</span>()</span> {
+  <span class="hljs-built_in">int</span> v, u;
+  ... 
+}
+</code></pre>
+<p><em>main</em>
+ llama a <em>sub1</em>
+, <em>sub1</em>
+ llama a <em>sub2</em>
+ y <em>sub2</em>
+ llama a <em>sub3</em>
+</p>
+</section>
+<section style="top: 350px; display: none;" inert="" hidden="" aria-hidden="true" class="future"><h3><span style="color:yellow;">Ejemplo cadena dinámica</span></h3>
+<div class="figure">
+<img src="./Subrutinas_files/dinamicchain.png" width="auto" height="auto">
+
+</div>
+</section>
+<section style="top: 350px; display: none;" inert="" hidden="" aria-hidden="true" class="future"><h3><span style="color:yellow;">Ejemplo con tabla central</span></h3>
+<div class="figure">
+<img src="./Subrutinas_files/tablacentral.png" width="auto" height="auto">
+
+</div>
+</section>
+</div>
+<div class="backgrounds"><div class="slide-background present" data-loaded="true" style="display: block;"><div class="slide-background-content"></div></div><div class="slide-background future" data-loaded="true" style="display: block;"><div class="slide-background-content"></div></div><div class="slide-background future" data-loaded="true" style="display: block;"><div class="slide-background-content"></div></div><div class="slide-background future" style="display: none;"><div class="slide-background-content"></div></div><div class="slide-background future" style="display: none;"><div class="slide-background-content"></div></div><div class="slide-background future" style="display: none;"><div class="slide-background-content"></div></div><div class="slide-background future" style="display: none;"><div class="slide-background-content"></div></div><div class="slide-background future" style="display: none;"><div class="slide-background-content"></div></div><div class="slide-background future" style="display: none;"><div class="slide-background-content"></div></div><div class="slide-background future" style="display: none;"><div class="slide-background-content"></div></div><div class="slide-background future" style="display: none;"><div class="slide-background-content"></div></div><div class="slide-background future" style="display: none;"><div class="slide-background-content"></div></div><div class="slide-background future" style="display: none;"><div class="slide-background-content"></div></div><div class="slide-background future" style="display: none;"><div class="slide-background-content"></div></div><div class="slide-background future" style="display: none;"><div class="slide-background-content"></div></div><div class="slide-background future" style="display: none;"><div class="slide-background-content"></div></div><div class="slide-background future" style="display: none;"><div class="slide-background-content"></div></div><div class="slide-background future" style="display: none;"><div class="slide-background-content"></div></div><div class="slide-background future" style="display: none;"><div class="slide-background-content"></div></div><div class="slide-background future" style="display: none;"><div class="slide-background-content"></div></div><div class="slide-background future" style="display: none;"><div class="slide-background-content"></div></div><div class="slide-background future" style="display: none;"><div class="slide-background-content"></div></div><div class="slide-background future" style="display: none;"><div class="slide-background-content"></div></div><div class="slide-background future" style="display: none;"><div class="slide-background-content"></div></div><div class="slide-background future" style="display: none;"><div class="slide-background-content"></div></div><div class="slide-background future" style="display: none;"><div class="slide-background-content"></div></div><div class="slide-background future" style="display: none;"><div class="slide-background-content"></div></div><div class="slide-background future" style="display: none;"><div class="slide-background-content"></div></div><div class="slide-background future" style="display: none;"><div class="slide-background-content"></div></div><div class="slide-background future" style="display: none;"><div class="slide-background-content"></div></div><div class="slide-background future" style="display: none;"><div class="slide-background-content"></div></div><div class="slide-background future" style="display: none;"><div class="slide-background-content"></div></div><div class="slide-background future" style="display: none;"><div class="slide-background-content"></div></div><div class="slide-background future" style="display: none;"><div class="slide-background-content"></div></div><div class="slide-background future" style="display: none;"><div class="slide-background-content"></div></div><div class="slide-background future" style="display: none;"><div class="slide-background-content"></div></div><div class="slide-background future" style="display: none;"><div class="slide-background-content"></div></div><div class="slide-background future" style="display: none;"><div class="slide-background-content"></div></div><div class="slide-background future" style="display: none;"><div class="slide-background-content"></div></div><div class="slide-background future" style="display: none;"><div class="slide-background-content"></div></div><div class="slide-background future" style="display: none;"><div class="slide-background-content"></div></div><div class="slide-background future" style="display: none;"><div class="slide-background-content"></div></div></div><div class="slide-number" style="display: none;"></div><aside class="controls" data-controls-layout="bottom-right" data-controls-back-arrows="faded" style="display: block;"><button class="navigate-left" aria-label="previous slide" disabled="disabled"><div class="controls-arrow"></div></button>
+			<button class="navigate-right enabled highlight" aria-label="next slide"><div class="controls-arrow"></div></button>
+			<button class="navigate-up" aria-label="above slide" disabled="disabled"><div class="controls-arrow"></div></button>
+			<button class="navigate-down" aria-label="below slide" disabled="disabled"><div class="controls-arrow"></div></button></aside><div class="progress" style="display: block;"><span style="transform: scaleX(0);"></span></div><div class="speaker-notes" data-prevent-swipe="" tabindex="0"></div><div class="pause-overlay"><button class="resume-button">Resume presentation</button></div><div class="aria-status" aria-live="polite" aria-atomic="true" style="position: absolute; height: 1px; width: 1px; overflow: hidden; clip: rect(1px, 1px, 1px, 1px);">Subrutinas. C. A. L. P. Claudio Vaucheret. </div></div>
+<script src="./Subrutinas_files/reveal.js.descargar"></script>
+<script>Reveal.initialize({      transition: 'slide'});</script>
+
+
+</body></html>
